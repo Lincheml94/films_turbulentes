@@ -1,0 +1,25 @@
+services:
+  app:
+    image: node:25
+    volumes:
+      - ./code:/app
+    ports:
+      - 3000:3000   # API  
+      - 5173:5173   # REACT
+      - 5500:5500   # live server
+    tty: true
+    restart: always  
+    working_dir: /app
+
+  mysql:
+    image: mysql:9.5
+    ports:
+      - 3306:3306
+    volumes:
+      - ./code/mysql:/app
+      - ./mysql-data:/var/lib/mysql
+    working_dir: /app
+    restart: always
+    environment: 
+      MYSQL_ROOT_PASSWORD: root
+ 

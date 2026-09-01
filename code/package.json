@@ -1,0 +1,31 @@
+{
+  "name": "@vitejs/plugin-rsc-examples-starter",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "server": "npx tsx watch --env-file .env.development server/index.ts",
+    "start": "NODE_ENV=production npx tsx watch --env-file .env server/index.ts",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "mysql2": "^3.24.2",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "tsx": "^4.23.13"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.11",
+    "@types/express": "^5.0.6",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.5",
+    "@vitejs/plugin-react": "latest",
+    "@vitejs/plugin-rsc": "latest",
+    "rsc-html-stream": "^0.0.8",
+    "vite": "^8.2.2"
+  }
+}

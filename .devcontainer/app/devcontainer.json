@@ -1,0 +1,36 @@
+{
+    "name": "App",
+    "service": "app",
+    "dockerComposeFile": "../../docker-compose.dev.yaml",
+    "workspaceFolder": "/app",
+    "customizations": {
+        "vscode": {
+            "extensions": ["ritwickdey.LiveServer" ,
+                          "biomejs.biome", 
+                          "christian-kohler.npm-intellisense", 
+                          "christian-kohler.path-intellisense",  
+                          "dsznajder.es7-react-js-snippets", 
+                          "VASubasRaj.flashpost"],
+            "settings": { 
+                "[typescript]": { 
+                  "editor.defaultFormatter": "biomejs.biome", 
+                  "editor.formatOnSave": true, 
+                  "editor.formatOnType": true 
+                }, 
+                "[typescriptreact]": { 
+                  "editor.defaultFormatter": "biomejs.biome", 
+                  "editor.formatOnSave": true, 
+                  "editor.formatOnType": true 
+                }, 
+                "[css]": { 
+                    "editor.defaultFormatter": "biomejs.biome", 
+                    "editor.formatOnSave": true, 
+                    "editor.formatOnType": true 
+                }, 
+                "editor.codeActionsOnSave": { 
+                    "source.fixAll": "always" 
+                    } 
+                  } 
+                } 
+              }  
+}   
