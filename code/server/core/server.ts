@@ -1,5 +1,8 @@
 import express, { type Express, type Router } from "express";
+import CategoryRouter from "../router/category_router";
+import FilmRouter from "../router/film_router";
 import HomepageRouter from "../router/homepage_router";
+import UserRouter from "../router/user_router";
 
 class Server {
 	// instancier une application Express
@@ -18,6 +21,9 @@ class Server {
 	private routerList = (): void => {
 		// création de la route d'accueil en GET
 		this.router.use("/api", new HomepageRouter().getRoutesList());
+		this.router.use("/api/film", new FilmRouter().getRoutesList());
+		this.router.use("/api/category", new CategoryRouter().getRoutesList());
+		this.router.use("/api/user", new UserRouter().getRoutesList());
 	};
 	// créer un serveur Node.js / Express
 	public createServer = (): express.Express => {

@@ -1,0 +1,19 @@
+import express from "express";
+import FilmController from "../controller/film_controller";
+
+class FilmRouter {
+	// définir un routeur
+	private router = express.Router();
+	// définir la liste des routes contenues dans le routeur
+	public getRoutesList = () => {
+		// création de la route d'accueil en GET en utilisant le préfixe /
+		this.router.get("/", new FilmController().index);
+		this.router.get("/:id", new FilmController().selectOne);
+		this.router.post("/", new FilmController().insert);
+		this.router.put("/:id", new FilmController().update);
+		this.router.delete("/", new FilmController().delete);
+
+		return this.router;
+	};
+}
+export default FilmRouter;
