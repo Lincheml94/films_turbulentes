@@ -2,7 +2,6 @@ import type { Category } from "./category";
 
 type Film = {
 	id: number;
-
 	title: string;
 	poster: string;
 	director: string;

@@ -1,5 +1,6 @@
 import type { Request, Response } from "express";
 import FilmRepository from "../repository/film_repository";
+import FileServices from "../service/file_service";
 
 class FilmController {
 	public index = async (_req: Request, res: Response) => {
@@ -42,7 +43,22 @@ class FilmController {
 		});
 	};
 	public insert = async (_req: Request, res: Response) => {
-		const results = await new FilmRepository().insert(_req.body);
+		const file = (
+			_req.files as Express.Multer.File[]
+		).shift() as Express.Multer.File;
+		// instancier le service de fichiers
+		const fileServices = new FileServices();
+		// Ajouter l'extension du fichiers
+		const fullname = await fileServices.rename(file);
+		// console.log("DONNÉES ENVOYÉES À LA BDD:", {
+		// 	..._req.body,
+		// 	poster: "nom_du_fichier",
+		// });
+
+		const results = await new FilmRepository().insert({
+			..._req.body,
+			poster: fullname,
+		});
 
 		// si la rêquete renvoie une erreur
 		if (results instanceof Error) {

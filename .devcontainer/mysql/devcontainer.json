@@ -1,5 +1,5 @@
 {
-    "name": "App  - mySQL",
+    "name": "mysql",
     "service": "mysql",
     "dockerComposeFile": "../../docker-compose.dev.yaml",
     "workspaceFolder": "/app"
