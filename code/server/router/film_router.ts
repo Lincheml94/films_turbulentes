@@ -13,7 +13,7 @@ class FilmRouter {
 		this.router.get("/", new FilmController().index);
 		this.router.get("/:id", new FilmController().selectOne);
 		this.router.post("/", this.multer.any(), new FilmController().insert);
-		this.router.put("/:id", new FilmController().update);
+		this.router.put("/:id", this.multer.any(), new FilmController().update);
 		this.router.delete("/", new FilmController().delete);
 
 		return this.router;
