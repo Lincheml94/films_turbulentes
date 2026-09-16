@@ -1,0 +1,13 @@
+header {
+	display: flex;
+	gap: 2rem;
+
+	.TitreNav {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.logo {
+		width: 173px;
+	}
+}
