@@ -26,6 +26,11 @@ class RouterService {
 								path: "",
 								lazy: () => import("../pages/index"),
 							},
+							{
+								id: "films",
+								path: "/films",
+								lazy: () => import("../pages/films"),
+							},
 						],
 					},
 				],

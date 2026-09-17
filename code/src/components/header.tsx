@@ -1,3 +1,4 @@
+import { NavLink } from "react-router";
 import styles from "../assets/css/public/header.module.css";
 import type { HeaderProps } from "../models/props/header_props";
 
@@ -19,12 +20,17 @@ const Header = ({ variant }: HeaderProps) => {
 					LES FILMS <br />
 					DES TURBULENTES
 				</h1>
-				{/* </div> */}
-				<nav>
+				<nav className={styles.navlinks}>
 					<ul>
-						<li>A propos</li>
-						<li>Films</li>
-						<li>Contact</li>
+						<li>
+							<NavLink to="/about">A propos</NavLink>
+						</li>
+						<li>
+							<NavLink to="/films">Films</NavLink>
+						</li>
+						<li>
+							<NavLink to="/contact">Contact</NavLink>
+						</li>
 					</ul>
 				</nav>
 			</div>
