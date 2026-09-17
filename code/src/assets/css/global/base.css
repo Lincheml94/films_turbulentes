@@ -1,0 +1,32 @@
+@font-face {
+	font-family: UncutSans-regular;
+	src: url(/src/assets/font/UncutSans-Regular.otf);
+}
+
+@font-face {
+	font-family: UncutSans-semi-bold;
+	src: url(/src/assets/font/UncutSans-Semibold.otf);
+}
+
+@font-face {
+	font-family: UncutSans-bold;
+	src: url(/src/assets/font/UncutSans-Book.otf);
+}
+
+@font-face {
+	font-family: MatterMonoTRIAL-bold;
+	src: url(/src/assets/font/MatterMonoTRIAL-Bold.otf);
+}
+
+p {
+	font-family: UncutSans-regular;
+}
+
+h1,
+li {
+	font-family: MatterMonoTRIAL-bold;
+}
+
+li {
+	list-style-type: none;
+}
