@@ -65,6 +65,41 @@ class FilmRepository {
 		}
 	};
 
+	public findLatestExploitedFilms = async (
+		limit: number = 3,
+	): Promise<Film[] | unknown> => {
+		// Connexion au serveur MySQL
+		const connection = await new MySQLService().connect();
+
+		// Requête SQL
+		// On sélectionne les films, on joint la table category pour filtrer par nom,
+		// on filtre sur 'En exploitation', on trie par date (ou ID) décroissante, et on limite le résultat.
+		const sql = `
+        SELECT ${this.table}.*, 
+               category.name AS category_name
+        FROM ${process.env.MYSQL_DATABASE}.${this.table}
+        JOIN ${process.env.MYSQL_DATABASE}.category 
+        ON ${this.table}.category_id = category.id
+        WHERE category.name = 'En exploitation'
+        ORDER BY ${this.table}.release_date DESC
+        LIMIT ?;
+    `;
+
+		// Try / Catch : exécuter la requête avec le paramètre limit ou retourner une erreur
+		try {
+			// Execution de la requête avec le tableau de paramètres [limit]
+			const [query] = await connection.execute(sql, [limit]);
+
+			console.log("DEBUG REPO - Contenu de query :", query);
+			console.log("DEBUG REPO - Type :", typeof query);
+
+			return query;
+		} catch (error) {
+			console.log("DEBUG REPO - Erreur attrapée :", error);
+			return error;
+		}
+	};
+
 	public insert = async (
 		data: Partial<Film>,
 	): Promise<QueryResult | unknown> => {

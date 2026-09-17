@@ -43,48 +43,27 @@ class FilmController {
 			data: results,
 		});
 	};
-	// public insert = async (_req: Request, res: Response) => {
-	// 	const file = (
-	// 		_req.files as Express.Multer.File[]
-	// 	).shift() as Express.Multer.File;
-	// 	// instancier le service de fichiers
-	// 	const fileServices = new FileServices();
-	// 	// Ajouter l'extension du fichiers
-	// 	const fullname = await fileServices.rename(file);
-	// 	// console.log("DONNÉES ENVOYÉES À LA BDD:", {
-	// 	// 	..._req.body,
-	// 	// 	poster: "nom_du_fichier",
-	// 	// });
+	public findLatestExploitedFilms = async (_req: Request, res: Response) => {
+		
+		const results = await new FilmRepository().findLatestExploitedFilms();
 
-	// 	const results = await new FilmRepository().insert({
-	// 		..._req.body,
-	// 		poster: fullname,
-	// 		director_1_image: fullname,
-	// 		director_2_image: fullname,
-	// 		director_3_image: fullname,
-	// 		image_1: fullname,
-	// 		image_2: fullname,
-	// 		image_3: fullname,
-	// 		image_4: fullname,
-	// 		image_5: fullname,
-	// 	});
+		// si la rêquete renvoie une erreur
+		if (results instanceof Error) {
+			res.status(400).json({
+				status: 400,
+				message:
+					process.env.NODE_ENV === "production" ? "Error" : results.message,
+			});
+			return;
+		}
+		// renvoyer une répone avec un code de status HTTP et au format JSON
+		res.status(200).json({
+			status: 200,
+			message: "Ok",
+			data: results,
+		});
+	};
 
-	// 	// si la rêquete renvoie une erreur
-	// 	if (results instanceof Error) {
-	// 		res.status(400).json({
-	// 			status: 400,
-	// 			message:
-	// 				process.env.NODE_ENV === "production" ? "Error" : results.message,
-	// 		});
-	// 		return;
-	// 	}
-	// 	// renvoyer une répone avec un code de status HTTP et au format JSON
-	// 	res.status(201).json({
-	// 		status: 201,
-	// 		message: "Created",
-	// 		data: results,
-	// 	});
-	// };
 	public insert = async (_req: Request, res: Response) => {
 		const files = _req.files as Express.Multer.File[];
 		const fileServices = new FileServices();

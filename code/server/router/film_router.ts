@@ -11,6 +11,10 @@ class FilmRouter {
 	public getRoutesList = () => {
 		// création de la route d'accueil en GET en utilisant le préfixe /
 		this.router.get("/", new FilmController().index);
+		this.router.get(
+			"/carrousel",
+			new FilmController().findLatestExploitedFilms,
+		);
 		this.router.get("/:id", new FilmController().selectOne);
 		this.router.post("/", this.multer.any(), new FilmController().insert);
 		this.router.put("/:id", this.multer.any(), new FilmController().update);
