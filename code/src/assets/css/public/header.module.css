@@ -1,12 +1,12 @@
 .header {
 	display: flex;
-	gap: 5rem;
+	gap: 4.167vw;
 	padding-left: 3rem;
 	align-items: center;
 
 	.TitreNav {
 		display: flex;
-		gap: 5rem;
+		gap: 4.167vw;
 		align-items: center;
 
 		h1 {
@@ -37,6 +37,7 @@
 		align-items: flex-start;
 		margin-top: 3.2rem;
 		gap: 3rem;
+		z-index: 1;
 
 		h1 {
 			font-size: 36px;

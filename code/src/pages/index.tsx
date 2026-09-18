@@ -1,12 +1,12 @@
 import styles from "../assets/css/public/trait.module.css";
 import Header from "../components/header";
+import CarrouselAccueil from "../components/public/carrousel_accueil";
 
 const HomePage = () => {
 	return (
 		<>
 			<Header variant="home" />
-			{/* <div className={styles.trait}></div> */}
-			<div className={styles.infoTrait}>
+			<div className={styles.mainAccueil}>
 				<div className={styles.infoTexte}>
 					<p>
 						Créée à l’été 2023 à Guainville en région Centre Val de Loire, Les
@@ -17,6 +17,7 @@ const HomePage = () => {
 					</p>
 				</div>
 				<div className={styles.trait}></div>
+				<CarrouselAccueil />
 			</div>
 		</>
 	);
