@@ -48,7 +48,16 @@
 @media only screen and (max-width: 1050px) {
 	.mainCarrousel {
 		position: relative;
-		width: 100vw;
-		flex-direction: column;
+		flex-direction: column-reverse;
+		overflow: unset;
+		height: auto;
+		top: 50vh;
+
+		.legend {
+			padding: unset;
+		}
+		.poster {
+			width: 100vw;
+		}
 	}
 }

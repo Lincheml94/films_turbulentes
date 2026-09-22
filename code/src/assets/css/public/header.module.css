@@ -5,6 +5,8 @@
 	gap: 4.167vw;
 	padding-left: 3rem;
 	align-items: center;
+	position: fixed;
+	z-index: 1;
 
 	.TitreNav {
 		display: flex;
@@ -68,8 +70,6 @@
 		width: 0.5px;
 		height: 100vh;
 		background: black;
-		/* top: 0; */
-		/* z-index: 10; */
 	}
 
 	.TitreNav {
@@ -89,35 +89,53 @@
 
 @media only screen and (max-width: 1050px) {
 	.header {
-		gap: 20vw;
+		gap: 0;
+		width: 100vw;
+		justify-content: center;
+		padding-left: unset;
+
 		.TitreNav {
-			gap: 15vw;
+			gap: 0;
+			h1 {
+				padding-left: 4rem;
+				padding-right: 4rem;
+			}
 		}
 	}
 	.headerHome {
 		align-items: center;
-		padding-left: 3rem;
-		gap: 20vw;
+		gap: 0;
+		width: 100vw;
+		padding-left: unset;
+		justify-content: center;
 
 		.logoTexte {
 			padding: 0;
-			width: auto;
+			width: unset;
 			.infoTexte {
 				position: absolute;
+				top: 10vh;
 				width: 100vw;
+				left: 0;
+				p {
+					padding: 20px;
+				}
 			}
 		}
 		.TitreNav {
 			flex-direction: row;
-			gap: 15vw;
+			gap: 0;
 			align-items: center;
 			margin-top: 0;
 			padding-left: 0;
 			h1 {
 				font-size: 24px;
 				line-height: 24px;
+				padding-left: 4rem;
+				padding-right: 4rem;
 			}
 		}
+
 		.trait {
 			display: none;
 		}
