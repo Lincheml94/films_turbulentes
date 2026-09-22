@@ -1,3 +1,5 @@
+/* TOUTES LES PAGES SAUF ACCUEIL */
+
 .header {
 	display: flex;
 	gap: 4.167vw;
@@ -11,6 +13,7 @@
 
 		h1 {
 			font-size: 24px;
+			line-height: 24px;
 		}
 
 		.navlinks ul {
@@ -24,24 +27,99 @@
 	}
 
 	.logo {
-		width: 160px;
+		width: 150px;
+	}
+	.infoTexte {
+		display: none;
+	}
+	.trait {
+		display: none;
 	}
 }
 
+/* PAGE D'ACCUEIL */
+
 .headerHome {
 	align-items: flex-start;
-	gap: 7rem;
-	padding-left: 4.6rem;
+	gap: unset;
+	padding-left: unset;
+
+	.logoTexte {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 20.3vw;
+		padding: 1.2rem;
+		padding-top: unset;
+
+		.infoTexte {
+			padding-top: 5.5rem;
+			display: flex;
+			align-items: center;
+			width: 100%;
+			p {
+				line-height: 1.1rem;
+			}
+		}
+	}
+
+	.trait {
+		display: block;
+		width: 0.5px;
+		height: 100vh;
+		background: black;
+		/* top: 0; */
+		/* z-index: 10; */
+	}
+
 	.TitreNav {
 		flex-direction: column;
 		align-items: flex-start;
-		margin-top: 3.2rem;
+		margin-top: 3rem;
 		gap: 3rem;
 		z-index: 1;
+		padding-left: 2rem;
 
 		h1 {
 			font-size: 36px;
 			line-height: 42px;
+		}
+	}
+}
+
+@media only screen and (max-width: 1050px) {
+	.header {
+		gap: 20vw;
+		.TitreNav {
+			gap: 15vw;
+		}
+	}
+	.headerHome {
+		align-items: center;
+		padding-left: 3rem;
+		gap: 20vw;
+
+		.logoTexte {
+			padding: 0;
+			width: auto;
+			.infoTexte {
+				position: absolute;
+				width: 100vw;
+			}
+		}
+		.TitreNav {
+			flex-direction: row;
+			gap: 15vw;
+			align-items: center;
+			margin-top: 0;
+			padding-left: 0;
+			h1 {
+				font-size: 24px;
+				line-height: 24px;
+			}
+		}
+		.trait {
+			display: none;
 		}
 	}
 }

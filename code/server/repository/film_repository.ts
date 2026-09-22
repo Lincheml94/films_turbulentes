@@ -90,12 +90,8 @@ class FilmRepository {
 			// Execution de la requête avec le tableau de paramètres [limit]
 			const [query] = await connection.execute(sql, [limit]);
 
-			console.log("DEBUG REPO - Contenu de query :", query);
-			console.log("DEBUG REPO - Type :", typeof query);
-
 			return query;
 		} catch (error) {
-			console.log("DEBUG REPO - Erreur attrapée :", error);
 			return error;
 		}
 	};

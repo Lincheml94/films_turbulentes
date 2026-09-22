@@ -10,8 +10,8 @@ const CarrouselAccueil = () => {
 					<p className={styles.legendText}>Un film de Melissandre Carrasco</p>
 				</div>
 				<div className={styles.fleches}>
-					<img src="/public/img/icons/arrow_right.svg" alt="" />
-					<img src="/public/img/icons/arrow_left.svg" alt="" />
+					<img src="/img/icons/arrow_right.svg" alt="" />
+					<img src="/img/icons/arrow_left.svg" alt="" />
 				</div>
 			</div>
 			<div className={styles.poster}>

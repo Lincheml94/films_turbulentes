@@ -1,13 +1,7 @@
 .mainCarrousel {
 	display: flex;
 	width: 75vw;
-	justify-content: flex-end;
-	position: absolute;
-	right: 0;
-	top: 0;
-	height: 100vh;
-	overflow: hidden;
-
+	/* height: 100vh; */
 	.legend {
 		width: 37.5vw;
 		height: 9vh;
@@ -35,8 +29,7 @@
 	}
 	.poster {
 		height: 100%;
-		width: 45vw;
-		/* width: 570px; */
+		width: 38.5vw;
 		img {
 			width: 100%;
 			height: 100%;
@@ -45,10 +38,10 @@
 	}
 }
 
-@media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 1000px) {
 	.mainCarrousel {
-		position: relative;
-		width: 100vw;
-		flex-direction: column;
+		.poster {
+			width: 48vw;
+		}
 	}
 }

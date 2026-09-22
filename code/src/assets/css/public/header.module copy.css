@@ -1,0 +1,81 @@
+/* TOUTES LES PAGES SAUF ACCUEIL */
+
+.header {
+	display: flex;
+	gap: 4.167vw;
+	padding-left: 3rem;
+	align-items: center;
+
+	.TitreNav {
+		display: flex;
+		gap: 4.167vw;
+		align-items: center;
+
+		h1 {
+			font-size: 24px;
+		}
+
+		.navlinks ul {
+			display: flex;
+			flex-direction: column;
+			gap: 0.8rem;
+			li {
+				font-size: 22px;
+			}
+		}
+	}
+
+	.logo {
+		width: 160px;
+	}
+}
+
+/* PAGE D4'ACCUEIL */
+
+.headerHome {
+	align-items: flex-start;
+	gap: 7rem;
+	padding-left: 4.6rem;
+	.TitreNav {
+		flex-direction: column;
+		align-items: flex-start;
+		margin-top: 3.2rem;
+		gap: 3rem;
+		z-index: 1;
+
+		h1 {
+			font-size: 36px;
+			line-height: 42px;
+		}
+	}
+}
+
+@media only screen and (max-width: 1540px) {
+	.headerHome {
+		/* gap: 10rem; */
+		/* padding-left: 2.8rem; */
+	}
+}
+
+@media only screen and (max-width: 1050px) {
+	.headerHome {
+		gap: 5.2rem;
+		/* padding-left: 2.8rem; */
+	}
+}
+@media only screen and (max-width: 1000px) {
+	.headerHome {
+		gap: 4rem;
+		.TitreNav {
+			gap: 2rem;
+			h1 {
+				font-size: 30px;
+			}
+			.navlinks ul {
+				li {
+					font-size: 18px;
+				}
+			}
+		}
+	}
+}
