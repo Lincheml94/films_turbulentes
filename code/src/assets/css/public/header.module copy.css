@@ -5,6 +5,9 @@
 	gap: 4.167vw;
 	padding-left: 3rem;
 	align-items: center;
+	position: fixed;
+	z-index: 1;
+	background-color: #ffffff;
 
 	.TitreNav {
 		display: flex;
@@ -13,6 +16,7 @@
 
 		h1 {
 			font-size: 24px;
+			line-height: 24px;
 		}
 
 		.navlinks ul {
@@ -23,25 +27,63 @@
 				font-size: 22px;
 			}
 		}
+		.hamburger {
+			display: none;
+		}
 	}
 
 	.logo {
-		width: 160px;
+		width: 150px;
+	}
+	.infoTexte {
+		display: none;
+	}
+	.trait {
+		display: none;
 	}
 }
 
-/* PAGE D4'ACCUEIL */
+/* PAGE D'ACCUEIL */
 
 .headerHome {
 	align-items: flex-start;
-	gap: 7rem;
-	padding-left: 4.6rem;
+	gap: unset;
+	padding-left: unset;
+	background-color: unset;
+
+	.logoTexte {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 20.3vw;
+		padding: 1.2rem;
+		padding-top: unset;
+
+		.infoTexte {
+			padding-top: 5.5rem;
+			display: flex;
+			align-items: center;
+			width: 100%;
+			p {
+				line-height: 1.1rem;
+			}
+		}
+	}
+
+	.trait {
+		display: block;
+		width: 0.5px;
+		height: 100vh;
+		background: black;
+	}
+
 	.TitreNav {
 		flex-direction: column;
 		align-items: flex-start;
-		margin-top: 3.2rem;
+		margin-top: 3rem;
 		gap: 3rem;
 		z-index: 1;
+		padding-left: 2rem;
 
 		h1 {
 			font-size: 36px;
@@ -50,30 +92,172 @@
 	}
 }
 
-@media only screen and (max-width: 1540px) {
+@media only screen and (max-width: 1050px) {
+	.header {
+		gap: 0;
+		width: 100vw;
+		justify-content: center;
+		padding-left: unset;
+		background-color: #ffffff;
+
+		.TitreNav {
+			gap: 0;
+			h1 {
+				padding-left: 2rem;
+				padding-right: 4rem;
+			}
+
+			.navlinks {
+				display: none;
+			}
+			.hamburger {
+				display: flex;
+				background: none;
+				border-style: none;
+				.menuham {
+					width: 2rem;
+				}
+			}
+			.navbar {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+			}
+			.navbarMobileVisible {
+				display: flex;
+
+				ul {
+					display: flex;
+					flex-direction: column;
+					gap: 0.8rem;
+					position: absolute;
+					background-color: #ffffff;
+					padding: 2rem;
+					padding-right: 0;
+					li {
+						font-size: 20px;
+					}
+				}
+			}
+		}
+	}
+
 	.headerHome {
-		/* gap: 10rem; */
-		/* padding-left: 2.8rem; */
+		align-items: center;
+		gap: 0;
+		width: 100vw;
+		padding-left: unset;
+		justify-content: center;
+
+		.logoTexte {
+			padding: 0;
+			width: unset;
+			.infoTexte {
+				position: absolute;
+				top: 10vh;
+				width: 100vw;
+				left: 0;
+				p {
+					padding: 20px;
+				}
+			}
+		}
+		.TitreNav {
+			flex-direction: row;
+			gap: 0;
+			align-items: center;
+			margin-top: 0;
+			padding-left: 0;
+			h1 {
+				font-size: 24px;
+				line-height: 24px;
+				padding-left: 2rem;
+				padding-right: 4rem;
+			}
+		}
+
+		.trait {
+			display: none;
+		}
 	}
 }
 
-@media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 700px) {
+	.header,
 	.headerHome {
-		gap: 5.2rem;
-		/* padding-left: 2.8rem; */
+		.TitreNav {
+			h1 {
+				font-size: 20px;
+			}
+			.navbarMobileVisible {
+				ul {
+					right: 1rem;
+					padding-right: 3rem;
+				}
+			}
+		}
+		.logo {
+			width: 120px;
+		}
+	}
+	.headerHome {
+		.logoTexte {
+			.infoTexte {
+				padding-top: 11vh;
+			}
+		}
 	}
 }
-@media only screen and (max-width: 1000px) {
+
+@media only screen and (max-width: 583px) {
+	.header,
 	.headerHome {
-		gap: 4rem;
 		.TitreNav {
-			gap: 2rem;
 			h1 {
-				font-size: 30px;
+				font-size: 17px;
+				padding-right: 1rem;
+				padding-left: 1rem;
 			}
-			.navlinks ul {
-				li {
-					font-size: 18px;
+			.navbarMobileVisible {
+				ul {
+					/* padding-top: 4rem; */
+					margin-top: 0.4rem;
+				}
+			}
+		}
+
+		.logo {
+			width: 100px;
+		}
+	}
+	.headerHome {
+		.logoTexte {
+			.infoTexte {
+				padding-top: 9vh;
+			}
+		}
+	}
+}
+@media only screen and (max-width: 420px) {
+	.header,
+	.headerHome {
+		.TitreNav {
+			.hamburger {
+				.menuham {
+					width: 1.5rem;
+				}
+			}
+		}
+		.logo {
+			width: 80px;
+		}
+	}
+	.headerHome {
+		.logoTexte {
+			.infoTexte {
+				padding-top: 6vh;
+				p {
+					font-size: 15px;
 				}
 			}
 		}
