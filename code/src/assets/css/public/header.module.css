@@ -255,3 +255,78 @@
 		}
 	}
 }
+
+/* GRANDS ECRANS */
+
+@media only screen and (min-width: 1700px) {
+	.header {
+		gap: 6vw;
+		.TitreNav {
+			gap: 6vw;
+
+			h1 {
+				font-size: 34px;
+				line-height: 29px;
+			}
+
+			.navlinks ul {
+				gap: 1rem;
+				li {
+					font-size: 26px;
+				}
+			}
+		}
+
+		.logo {
+			width: 190px;
+		}
+	}
+
+	.headerHome {
+		gap: 0;
+		.logoTexte {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 25vw;
+			padding: 1.2rem;
+			padding-top: unset;
+			.logo {
+				width: 300px;
+			}
+		}
+
+		.TitreNav {
+			h1 {
+				font-size: 52px;
+				line-height: 60px;
+			}
+
+			.navlinks ul {
+				display: flex;
+				flex-direction: column;
+				gap: 1.1rem;
+				li {
+					font-size: 30px;
+				}
+			}
+			.hamburger {
+				display: none;
+			}
+		}
+	}
+
+	.infoTexte {
+		position: absolute;
+		width: 25vw;
+		top: 35vh;
+		display: flex;
+		justify-content: center;
+
+		p {
+			line-height: 2rem;
+			font-size: 27px;
+			width: 23vw;
+		}
+	}
+}
