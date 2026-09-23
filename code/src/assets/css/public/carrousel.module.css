@@ -52,6 +52,7 @@
 		overflow: unset;
 		height: auto;
 		top: 17rem;
+		width: 100vw;
 
 		.legend {
 			padding: unset;

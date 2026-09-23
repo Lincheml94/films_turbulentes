@@ -81,7 +81,7 @@ const Header = ({ variant }: HeaderProps) => {
 					</div>
 				</div>
 			</header>
-			<div className={styles.infoTexte}>
+			{/* <div className={styles.infoTexte}>
 				<p>
 					Créée à l’été 2023 à Guainville en région Centre Val de Loire, Les
 					Films des Turbulentes défend un cinéma de l’exploration qui bouleverse
@@ -89,7 +89,7 @@ const Header = ({ variant }: HeaderProps) => {
 					garde, soucieux du monde qui les entoure et dont les récits résonnent
 					avec leur vécu intime.
 				</p>
-			</div>
+			</div> */}
 		</>
 	);
 };

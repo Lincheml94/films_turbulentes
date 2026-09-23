@@ -82,9 +82,9 @@
 
 .infoTexte {
 	position: absolute;
-	padding: 1rem;
-	width: 21vw;
+	width: 20vw;
 	top: 40vh;
+	padding: 1rem;
 	p {
 		line-height: 1.1rem;
 	}
@@ -171,11 +171,15 @@
 	}
 
 	.infoTexte {
-		top: 9rem;
-		width: 100vw;
+		padding: 0;
+		top: 10rem;
+		width: 98%;
+		display: flex;
+		justify-content: center;
 		left: 0;
+
 		p {
-			padding: 20px;
+			width: 89vw;
 		}
 	}
 }
@@ -199,8 +203,7 @@
 		}
 	}
 	.infoTexte {
-		padding-top: 0;
-		top: 20vh;
+		top: 9rem;
 	}
 }
 
@@ -209,28 +212,24 @@
 	.headerHome {
 		.TitreNav {
 			h1 {
-				font-size: 17px;
-				padding-right: 1rem;
+				font-size: 15px;
+				padding-right: 1.5rem;
 				padding-left: 1rem;
+				line-height: 18px;
 			}
 			.navbarMobileVisible {
 				ul {
-					/* padding-top: 4rem; */
 					margin-top: 0.4rem;
 				}
 			}
 		}
 
 		.logo {
-			width: 100px;
+			width: 80px;
 		}
 	}
-	.headerHome {
-		.logoTexte {
-			.infoTexte {
-				padding-top: 9vh;
-			}
-		}
+	.infoTexte {
+		top: 7rem;
 	}
 }
 @media only screen and (max-width: 420px) {
@@ -247,14 +246,12 @@
 			width: 80px;
 		}
 	}
-	.headerHome {
-		.logoTexte {
-			.infoTexte {
-				padding-top: 6vh;
-				p {
-					font-size: 15px;
-				}
-			}
+
+	.infoTexte {
+		top: 6rem;
+		p {
+			font-size: 15px;
+			width: 85vw;
 		}
 	}
 }
