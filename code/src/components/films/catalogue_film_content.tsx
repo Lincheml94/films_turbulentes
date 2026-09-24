@@ -10,13 +10,15 @@ const CatalogueFilmContent = () => {
 	return (
 		<div className={styles.mainPageFilms}>
 			<div className={styles.categories}>
-				{resultsCategories?.map((item) => {
-					return (
-						<div className={styles.categoriesName} key={item.id}>
-							<p>{item.name}</p>
-						</div>
-					);
-				})}
+				<div className={styles.categoriesFixed}>
+					{resultsCategories?.map((item) => {
+						return (
+							<div className={styles.categoriesName} key={item.id}>
+								<p>{item.name}</p>
+							</div>
+						);
+					})}
+				</div>
 			</div>
 			<div className={styles.posterPageFilms}>
 				{resultsFilms?.map((item) => {
