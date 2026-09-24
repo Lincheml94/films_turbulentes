@@ -11,23 +11,27 @@
 			position: fixed;
 			display: flex;
 			flex-direction: column;
-			gap: 2rem;
-			padding: 1rem;
+			gap: 1rem;
+			padding: 2.5rem;
 		}
 	}
 	.posterPageFilms {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 1rem;
+		gap: 0rem;
 		.filmBox {
 			display: flex;
 			flex-direction: column;
 			gap: 1rem;
+			align-items: center;
 			.posterBox {
 				width: 250px;
 				height: 300px;
 				overflow: hidden;
 				margin: 2.5rem;
+				p {
+					font-family: UncutSans-regular !important;
+				}
 
 				img {
 					width: 100%;
@@ -63,9 +67,12 @@
 				justify-content: center;
 				align-items: center;
 				background: #ffffff;
-				top: 152px;
-				padding-top: 8rem;
+				top: 122px;
 				z-index: 1;
+				padding-bottom: unset;
+				padding-right: unset;
+				padding-left: unset;
+				padding-top: 2rem;
 			}
 		}
 		.posterPageFilms {
@@ -82,16 +89,12 @@
 	}
 }
 
-@media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 700px) {
 	.mainPageFilms {
+		padding-top: 8rem;
 		.categories {
 			.categoriesFixed {
-				flex-direction: row;
-				width: 100vw;
-				justify-content: center;
-				padding: unset;
-				background: #ffffff;
-				top: 122px;
+				padding-top: unset;
 			}
 		}
 	}
@@ -99,6 +102,7 @@
 
 @media only screen and (max-width: 583px) {
 	.mainPageFilms {
+		padding-top: 9rem;
 		.categories {
 			.categoriesFixed {
 				flex-direction: column;
@@ -109,7 +113,6 @@
 			}
 		}
 		.posterPageFilms {
-			padding-top: 4rem;
 			.filmBox {
 				.posterBox {
 					width: 300px;

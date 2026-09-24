@@ -3,11 +3,13 @@
 .header {
 	display: flex;
 	gap: 4.167vw;
+	width: 100vw;
 	padding-left: 3rem;
 	align-items: center;
 	position: fixed;
 	z-index: 1;
 	background-color: #ffffff;
+	justify-content: left;
 
 	.TitreNav {
 		display: flex;
