@@ -11,7 +11,7 @@ class CategoryRepository {
 		// requête SQL
 		// SELECT category.* FROM publishinghouse_dev.category
 		const sql = `
-            SELECT ${this.table}.*, film.director AS film_director
+            SELECT ${this.table}.*
             FROM ${process.env.MYSQL_DATABASE}.${this.table}
 			JOIN film ON film.category_id = film.id;
 			

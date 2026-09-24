@@ -1,33 +1,35 @@
 import { use } from "react";
+import styles from "../../assets/css/public/catalogue_films.module.css";
+import CategoryApiService from "../../service/category_api_service";
 import FilmApiService from "../../service/film_api_service";
 
 const CatalogueFilmContent = () => {
-	const results = use(new FilmApiService().selectAll()).data;
+	const resultsFilms = use(new FilmApiService().selectAll()).data;
+	const resultsCategories = use(new CategoryApiService().selectAll()).data;
 
 	return (
-		<div>
-			<p>hello</p>
-			<p>hello</p>
-			<p>hello</p>
-			<p>hello</p>
-			<p>hello</p>
-			<p>hello</p>
-			<p>hello</p>
-			<p>hello</p>
-			<p>hello</p>
-			<p>hello</p>
-			<p>hello</p>
-			<p>hello</p>
-			<p>hello</p>
-
-			{results?.map((item) => {
-				return (
-					<div key={item.id}>
-						<img src={`/img/${item.poster}`} alt={item.title} />
-						<p>{item.title}</p>
-					</div>
-				);
-			})}
+		<div className={styles.mainPageFilms}>
+			<div className={styles.categories}>
+				{resultsCategories?.map((item) => {
+					return (
+						<div className={styles.categoriesName} key={item.id}>
+							<p>{item.name}</p>
+						</div>
+					);
+				})}
+			</div>
+			<div className={styles.posterPageFilms}>
+				{resultsFilms?.map((item) => {
+					return (
+						<div className={styles.filmBox} key={item.id}>
+							<div className={styles.posterBox}>
+								<img src={`/img/${item.poster}`} alt={item.title} />
+							</div>
+							<p>{item.title}</p>
+						</div>
+					);
+				})}
+			</div>
 		</div>
 	);
 };
