@@ -1,0 +1,14 @@
+.contentCatalogueFilms {
+	width: 100%;
+	height: 100%;
+	padding-top: 8rem;
+	display: flex;
+
+	.categories {
+		width: 15vw;
+	}
+	.filmgrid {
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
