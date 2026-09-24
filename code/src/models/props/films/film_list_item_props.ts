@@ -1,4 +1,4 @@
-import type { Film } from "../../../models/film";
+import type { Film } from "../../../../models/film";
 
 type FilmListItemProps = {
 	data: Film;
