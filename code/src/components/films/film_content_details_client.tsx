@@ -126,7 +126,7 @@ const FilmContentDetailsClient = ({ data }: FilmContentDetailsProps) => {
 				{/* COLONNE DROITE : DESCRIPTION */}
 				<div className={styles.colonneDetail}>
 					<div className={styles.colonneDetailDescription}>
-						{data.description}
+						<p>{data.description}</p>
 					</div>
 				</div>
 			</div>

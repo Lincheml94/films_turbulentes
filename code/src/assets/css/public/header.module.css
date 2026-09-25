@@ -2,9 +2,9 @@
 
 .header {
 	display: flex;
-	gap: 4.167vw;
+	gap: 6.167vw;
 	width: 100vw;
-	padding-left: 3rem;
+	padding-left: 2.7rem;
 	align-items: center;
 	position: fixed;
 	z-index: 1;
@@ -13,18 +13,22 @@
 
 	.TitreNav {
 		display: flex;
-		gap: 4.167vw;
+		gap: 6.167vw;
 		align-items: center;
 
 		h1 {
-			font-size: 24px;
-			line-height: 24px;
+			font-size: 21px;
+			line-height: 26px;
+			padding-bottom: 20px;
+			padding-left: 4px;
 		}
 
 		.navlinks ul {
 			display: flex;
 			flex-direction: column;
 			gap: 0.8rem;
+			padding-top: 3px;
+			padding-left: 6px;
 			li {
 				font-size: 22px;
 			}
@@ -35,7 +39,7 @@
 	}
 
 	.logo {
-		width: 150px;
+		width: 155px;
 	}
 
 	.trait {
