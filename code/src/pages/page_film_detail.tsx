@@ -1,6 +1,7 @@
 import { use } from "react";
 import type { Film } from "../../models/film";
 import FilmContentDetailsClient from "../components/films/film_content_details_client";
+import Header from "../components/header";
 import type { FilmsDetailsParams } from "../models/params/films_details_params";
 import FilmApiService from "../service/film_api_service";
 
@@ -13,6 +14,7 @@ const PageFilmsDetails = ({ params }: FilmsDetailsParams) => {
 	}
 	return (
 		<div>
+			<Header />
 			<FilmContentDetailsClient data={result.data as Film} />
 		</div>
 	);

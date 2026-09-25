@@ -1,0 +1,93 @@
+.mainPageFilmDetail {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	scrollbar-width: 0px;
+	padding-bottom: 3rem;
+
+	p {
+		font-size: 14px;
+		font-family: UncutSans-semibold;
+		line-height: 19px;
+	}
+	.posterLeft {
+		height: 100vh;
+		position: fixed;
+		z-index: 2;
+		right: 0;
+		width: 40vw;
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+	.colonnesInfoFilms {
+		display: flex;
+		padding-top: 205px;
+		width: 60vw;
+		height: 100%;
+		justify-content: center;
+		.colonneDetail {
+			width: 45%;
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+			.directorYearDuration {
+				.filmTitle {
+					font-size: 30px;
+					font-family: UncutSans-bold;
+					padding-bottom: 1em;
+				}
+			}
+		}
+
+		.colonneDetailDescription {
+			position: fixed;
+			width: 25%;
+		}
+	}
+	.titreArrow {
+		display: flex;
+		.boxTitle {
+			font-family: UncutSans-bold;
+		}
+	}
+
+	/* BOITES */
+
+	.boxPartIsClose,
+	.boxCineIsClose,
+	.boxFestIsClose,
+	.boxEquipeIsClose,
+	.boxImageIsClose {
+		display: none;
+	}
+
+	.boxPartIsVisible,
+	.boxCineIsVisible,
+	.boxFestIsVisible,
+	.boxEquipeIsVisible,
+	.boxImageIsVisible {
+		display: block;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+	}
+
+	/* Boite Cinéaste(s) */
+
+	.boxCineIsVisible {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		padding-top: 2rem;
+		img {
+			width: 100px;
+		}
+	}
+	.boxImageIsVisible {
+		img {
+			height: 250px;
+		}
+	}
+}

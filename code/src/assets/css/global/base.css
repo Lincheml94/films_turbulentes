@@ -4,7 +4,7 @@
 }
 
 @font-face {
-	font-family: UncutSans-semi-bold;
+	font-family: UncutSans-semibold;
 	src: url(/src/assets/font/UncutSans-Semibold.otf);
 }
 
@@ -33,4 +33,13 @@ li {
 		text-decoration: none;
 		color: unset;
 	}
+}
+
+button {
+	background-color: unset;
+	border: unset;
+}
+
+button:hover {
+	cursor: pointer;
 }
