@@ -36,7 +36,7 @@ const CatalogueFilmContentClient = ({
 					className={`${styles.categoriesName} ${selectedCategoryId === null ? styles.active : ""}`}
 					onClick={() => setSelectedCategoryId(null)}
 				>
-					Tous les films
+					<p>Tous les films</p>
 				</button>
 
 				{initialCategories.map((cat) => (
@@ -46,7 +46,7 @@ const CatalogueFilmContentClient = ({
 						className={`${styles.categoriesName} ${selectedCategoryId === cat.id ? styles.active : ""}`}
 						onClick={() => setSelectedCategoryId(cat.id)}
 					>
-						{cat.name}
+						<p>{cat.name}</p>
 					</button>
 				))}
 			</div>
