@@ -35,6 +35,10 @@ li {
 	}
 }
 
+body {
+	/* overflow: hidden; */
+}
+
 button {
 	background-color: unset;
 	border: unset;

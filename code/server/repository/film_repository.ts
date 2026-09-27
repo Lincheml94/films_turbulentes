@@ -100,6 +100,44 @@ class FilmRepository {
 		data: Partial<Film>,
 	): Promise<QueryResult | unknown> => {
 		const connection = await new MySQLService().connect();
+
+		// 1. On copie les données dans un objet "propre"
+		const cleanData: any = { ...data };
+
+		// 2. Liste de TOUS les champs qui peuvent être NULL dans ta table 'film'
+		// (Ceux qui ont "NULL" dans ton CREATE TABLE)
+		const nullableFields = [
+			"director_1_bio",
+			"director_1_image",
+			"director_2",
+			"director_2_bio",
+			"director_2_image",
+			"director_3",
+			"director_3_bio",
+			"director_3_image",
+			"release_date",
+			"duration",
+			"fiche_technique",
+			"prix_festivals",
+			"partenaires_soutiens",
+			"presse",
+			"image_1",
+			"image_2",
+			"image_3",
+			"image_4",
+			"image_5",
+		];
+
+		// 3. Nettoyage : Transforme "" et undefined en null
+		nullableFields.forEach((field) => {
+			if (cleanData[field] === "" || cleanData[field] === undefined) {
+				cleanData[field] = null;
+			}
+			// Au cas où le frontend enverrait la chaîne "null"
+			if (cleanData[field] === "null") {
+				cleanData[field] = null;
+			}
+		});
 		const sql = `
 		INSERT INTO 
 			${process.env.MYSQL_DATABASE}.${this.table}
@@ -137,7 +175,7 @@ class FilmRepository {
 		`;
 
 		try {
-			const [query] = await connection.execute(sql, data);
+			const [query] = await connection.execute(sql, cleanData);
 
 			// retourner les résultats
 			return query;
@@ -151,6 +189,57 @@ class FilmRepository {
 		data: Partial<Film>,
 	): Promise<QueryResult | unknown> => {
 		const connection = await new MySQLService().connect();
+
+		// console.log("Données reçues pour UPDATE :", data);
+		// console.log("Valeur de delete_image_1 :", (data as any)["delete_image_1"]);
+
+		const cleanData: any = { ...data };
+
+		const nullableFields = [
+			"director_1_bio",
+			"director_1_image",
+			"director_2",
+			"director_2_bio",
+			"director_2_image",
+			"director_3",
+			"director_3_bio",
+			"director_3_image",
+			"release_date",
+			"duration",
+			"fiche_technique",
+			"prix_festivals",
+			"partenaires_soutiens",
+			"presse",
+			"image_1",
+			"image_2",
+			"image_3",
+			"image_4",
+			"image_5",
+		];
+
+		// 2. BOUCLE DE NETTOYAGE GÉNÉRALE
+		nullableFields.forEach((field) => {
+			const value = cleanData[field];
+
+			// Si la valeur est undefined (champ absent) OU chaîne vide ""
+			if (value === undefined || value === "") {
+				cleanData[field] = null;
+			}
+
+			// Gestion spécifique pour les flags de suppression d'images
+			if (field.startsWith("image_")) {
+				const deleteFlag = (data as any)[`delete_${field}`];
+				if (deleteFlag === "true" || deleteFlag === true) {
+					cleanData[field] = null;
+				}
+			}
+
+			// Nettoyage des chaînes "null" littérales (cas FlashPost parfois)
+			if (value === "null") {
+				cleanData[field] = null;
+			}
+		});
+		// console.log("Données nettoyées envoyées à la SQL :", cleanData);
 		const sql = `
 		UPDATE 
 			${process.env.MYSQL_DATABASE}.${this.table}
@@ -186,7 +275,7 @@ class FilmRepository {
 		`;
 
 		try {
-			const [query] = await connection.execute(sql, data);
+			const [query] = await connection.execute(sql, cleanData);
 
 			// retourner les résultats
 			return query;
