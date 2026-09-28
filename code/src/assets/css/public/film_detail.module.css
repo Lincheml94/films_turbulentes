@@ -1,8 +1,8 @@
 .mainPageFilmDetail {
 	display: flex;
 	width: 100%;
-	height: 100%;
-	padding-bottom: 3rem;
+	height: 100vh;
+	overflow: hidden;
 
 	p {
 		font-size: 14px;
@@ -26,15 +26,22 @@
 		display: flex;
 		padding-top: 200px;
 		padding-left: 3rem;
+
 		gap: 2rem;
 		width: 60vw;
+		height: calc(100vh - 200px);
+		position: relative;
 		.colonneDetail {
 			width: 23vw;
 			display: flex;
 			flex-direction: column;
 			gap: 2rem;
-			height: 100%;
+			height: auto;
 			overflow-y: auto;
+			padding-right: 2em;
+			padding-bottom: 2em;
+			/* barre de scroll */
+			scrollbar-width: none;
 
 			.directorYearDuration {
 				padding-bottom: 2em;
@@ -53,8 +60,9 @@
 		.colonneDetailDescription {
 			position: fixed;
 			width: 23vw;
-			padding-left: 3.5rem;
+			padding-left: 1.5rem;
 			padding-top: 3rem;
+			z-index: 10;
 			p {
 				font-size: 18px;
 				line-height: 24px;
@@ -106,5 +114,10 @@
 		img {
 			height: 150px;
 		}
+	}
+	/* flèche */
+	.arrowUp {
+		transform: rotate(180deg);
+		/* transition: transform 0.3s ease;  */
 	}
 }

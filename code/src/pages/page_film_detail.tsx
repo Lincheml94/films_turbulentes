@@ -1,7 +1,7 @@
 import { use } from "react";
 import type { Film } from "../../models/film";
-import FilmContentDetailsClient from "../components/films/film_content_details_client";
 import Header from "../components/header";
+import FilmContentDetailsClient from "../components/public/films/film_content_details_client";
 import type { FilmsDetailsParams } from "../models/params/films_details_params";
 import FilmApiService from "../service/film_api_service";
 
