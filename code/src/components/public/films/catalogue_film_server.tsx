@@ -1,8 +1,8 @@
 import { use } from "react";
-import type { Category } from "../../../models/category";
-import type { Film } from "../../../models/film";
-import CategoryApiService from "../../service/category_api_service";
-import FilmApiService from "../../service/film_api_service";
+import type { Category } from "../../../../models/category";
+import type { Film } from "../../../../models/film";
+import CategoryApiService from "../../../service/category_api_service";
+import FilmApiService from "../../../service/film_api_service";
 import CatalogueFilmContentClient from "./catalogue_film_content_client";
 
 // Ce composant est un Server Component (par défaut)

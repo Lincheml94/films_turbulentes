@@ -1,4 +1,4 @@
-import styles from "../../assets/css/public/carrousel.module.css";
+import styles from "../../../assets/css/public/carrousel.module.css";
 
 const CarrouselAccueil = () => {
 	return (

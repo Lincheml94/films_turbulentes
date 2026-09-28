@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import styles from "../../assets/css/public/film_detail.module.css";
-import type { FilmContentDetailsProps } from "../../models/props/films/films_content_details_props";
+import styles from "../../../assets/css/public/film_detail.module.css";
+import type { FilmContentDetailsProps } from "../../../models/props/films/films_content_details_props";
 
 const FilmContentDetailsClient = ({ data }: FilmContentDetailsProps) => {
 	// BOITES DEROULANTES
@@ -41,12 +41,6 @@ const FilmContentDetailsClient = ({ data }: FilmContentDetailsProps) => {
 						<p className={styles.filmTitle}>{data.title}</p>
 						<p>Un film de {data.director_1}</p>
 						<p>{data.type}</p>
-						{/* date et durée : données non obligatoires */}
-						{/* {data.release_date && (
-							<p>
-								{data.release_date} / {data.duration}'
-							</p>
-						)} */}
 						<div className={styles.releaseInfo}>
 							{/* 1. Affiche la date si elle existe */}
 							{data.release_date && <p>{data.release_date}</p>}
@@ -66,7 +60,11 @@ const FilmContentDetailsClient = ({ data }: FilmContentDetailsProps) => {
 							<div className={styles.titreArrow}>
 								<p className={styles.boxTitle}>Partenaires et soutiens</p>
 								<button type="button" onClick={ShowPartenaires}>
-									<img src="/img/icons/arrow_down.svg" alt="arrow" />
+									<img
+										src="/img/icons/arrow_down.svg"
+										alt="arrow"
+										className={partIsVisible ? styles.arrowUp : ""}
+									/>
 								</button>
 							</div>
 							<div
@@ -81,7 +79,11 @@ const FilmContentDetailsClient = ({ data }: FilmContentDetailsProps) => {
 						<div className={styles.titreArrow}>
 							<p className={styles.boxTitle}>Cinéaste(s)</p>
 							<button type="button" onClick={ShowCineastes}>
-								<img src="/img/icons/arrow_down.svg" alt="arrow" />
+								<img
+									src="/img/icons/arrow_down.svg"
+									alt="arrow"
+									className={cineastesIsVisible ? styles.arrowUp : ""}
+								/>
 							</button>
 						</div>
 						<div
@@ -117,7 +119,11 @@ const FilmContentDetailsClient = ({ data }: FilmContentDetailsProps) => {
 							<div className={styles.titreArrow}>
 								<p className={styles.boxTitle}>Festivals et prix</p>
 								<button type="button" onClick={ShowFestivals}>
-									<img src="/img/icons/arrow_down.svg" alt="arrow" />
+									<img
+										src="/img/icons/arrow_down.svg"
+										alt="arrow"
+										className={festivalsIsVisible ? styles.arrowUp : ""}
+									/>
 								</button>
 							</div>
 							<div
@@ -135,7 +141,11 @@ const FilmContentDetailsClient = ({ data }: FilmContentDetailsProps) => {
 									Equipe artistique et technique
 								</p>
 								<button type="button" onClick={ShowEquipe}>
-									<img src="/img/icons/arrow_down.svg" alt="arrow" />
+									<img
+										src="/img/icons/arrow_down.svg"
+										alt="arrow"
+										className={equipeIsVisible ? styles.arrowUp : ""}
+									/>
 								</button>
 							</div>
 							<div
@@ -175,7 +185,11 @@ const FilmContentDetailsClient = ({ data }: FilmContentDetailsProps) => {
 								<div className={styles.titreArrow}>
 									<p className={styles.boxTitle}>Images</p>
 									<button type="button" onClick={ShowImages}>
-										<img src="/img/icons/arrow_down.svg" alt="arrow" />
+										<img
+											src="/img/icons/arrow_down.svg"
+											alt="arrow"
+											className={imagesIsVisible ? styles.arrowUp : ""}
+										/>
 									</button>
 								</div>
 

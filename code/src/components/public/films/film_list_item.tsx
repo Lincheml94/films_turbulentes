@@ -1,8 +1,8 @@
 import { use } from "react";
-import styles from "../../assets/css/public/catalogue_films.module.css";
 // import type { FilmListItemProps } from "../../models/props/films/film_list_item_props";
-import CategoryApiService from "../../service/category_api_service";
-import FilmApiService from "../../service/film_api_service";
+import CategoryApiService from "../../../service/category_api_service";
+import FilmApiService from "../../../service/film_api_service";
+import styles from "../../assets/css/public/catalogue_films.module.css";
 
 const FilmListItem = () => {
 	const resultsFilms = use(new FilmApiService().selectAll()).data;
