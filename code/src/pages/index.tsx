@@ -1,5 +1,5 @@
 import Header from "../components/header";
-import CarrouselAccueil from "../components/public/carrousel/carrousel_accueil";
+import CarrouselAccueilServer from "../components/public/carrousel/carrousel_accueil_server";
 import TextPresentation from "../components/texte_presentation";
 
 const HomePage = () => {
@@ -7,7 +7,7 @@ const HomePage = () => {
 		<>
 			<Header variant="home" />
 			<TextPresentation />
-			<CarrouselAccueil />
+			<CarrouselAccueilServer />
 		</>
 	);
 };

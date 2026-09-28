@@ -36,9 +36,11 @@ class FilmApiService {
 		return results;
 	};
 
-	public findLatestExploitedFilms = async (): Promise<ApiResponse<Film[]>> => {
+	public findLatestExploitedFilms = async (
+		limit: number = 3,
+	): Promise<ApiResponse<Film[]>> => {
 		const request = new Request(
-			`${import.meta.env.VITE_API_URL}${this.prefix}`,
+			`${import.meta.env.VITE_API_URL}${this.prefix}/carrousel?limit=${limit}`,
 		);
 		const response = await fetch(request);
 

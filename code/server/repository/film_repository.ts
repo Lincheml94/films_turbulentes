@@ -82,12 +82,11 @@ class FilmRepository {
         ON ${this.table}.category_id = category.id
         WHERE category.name = 'En exploitation'
         ORDER BY ${this.table}.release_date DESC
-        LIMIT ?;
+        LIMIT ?
     `;
 
 		// Try / Catch : exécuter la requête avec le paramètre limit ou retourner une erreur
 		try {
-			// Execution de la requête avec le tableau de paramètres [limit]
 			const [query] = await connection.execute(sql, [limit]);
 
 			return query;
