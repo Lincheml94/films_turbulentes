@@ -1,10 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router";
-// import { useLocation } from "react-router-dom";
 import type { Category } from "../../../../models/category";
 import type { Film } from "../../../../models/film";
-import styles from "../../assets/css/public/catalogue_films.module.css";
+import styles from "../../../assets/css/public/catalogue_films.module.css";
 
 // Interface pour les props reçues du serveur
 interface CatalogueFilmContentClientProps {
