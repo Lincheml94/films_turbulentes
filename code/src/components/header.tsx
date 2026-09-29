@@ -19,7 +19,9 @@ const Header = ({ variant }: HeaderProps) => {
 	const headerClass =
 		variant === "home"
 			? `${styles.header} ${styles.headerHome}`
-			: styles.header;
+			: variant === "film_detail"
+				? `${styles.header} ${styles.headerFilm}`
+				: styles.header;
 	return (
 		<>
 			<header className={headerClass}>

@@ -47,6 +47,11 @@
 	}
 }
 
+/* PAGE FILMS DETAILS */
+.headerFilm {
+	width: 55vw !important;
+}
+
 /* PAGE D'ACCUEIL */
 
 .headerHome {
@@ -96,12 +101,18 @@
 	}
 }
 
+@media only screen and (max-width: 1050px) and (orientation: portrait) {
+	.headerFilm {
+		width: 100vw !important;
+	}
+}
+
 @media only screen and (max-width: 1050px) {
 	.header {
 		gap: 0;
 		width: 100vw;
 		justify-content: center;
-		padding-left: unset;
+		padding-left: 0em;
 		background-color: #ffffff;
 
 		.TitreNav {

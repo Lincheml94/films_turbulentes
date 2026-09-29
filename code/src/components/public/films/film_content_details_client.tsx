@@ -27,12 +27,6 @@ const FilmContentDetailsClient = ({ data }: FilmContentDetailsProps) => {
 		setImagesIsVisible(!imagesIsVisible);
 	};
 
-	// FLECHES DOWN / UP
-	const [arrowUp, setArrowUp] = useState<boolean>(false);
-	const ArrowUp = () => {
-		setArrowUp(!arrowUp);
-	};
-
 	return (
 		<div className={styles.mainPageFilmDetail}>
 			<div className={styles.colonnesInfoFilms}>
@@ -209,15 +203,16 @@ const FilmContentDetailsClient = ({ data }: FilmContentDetailsProps) => {
 					})()}
 				</div>
 				{/* COLONNE DROITE : DESCRIPTION */}
-				<div className={styles.colonneDetail}>
-					<div className={styles.colonneDetailDescription}>
-						<p>{data.description}</p>
-					</div>
-				</div>
 			</div>
-
-			<div className={styles.posterLeft}>
-				<img src={`/img/${data.poster}`} alt={data.title} />
+			<div className={styles.leftElements}>
+				{/* <div className={styles.colonneDetail}> */}
+				<div className={styles.colonneDetailDescription}>
+					<p>{data.description}</p>
+				</div>
+				{/* </div> */}
+				<div className={styles.posterLeft}>
+					<img src={`/img/${data.poster}`} alt={data.title} />
+				</div>
 			</div>
 		</div>
 	);

@@ -14,7 +14,7 @@ const PageFilmsDetails = ({ params }: FilmsDetailsParams) => {
 	}
 	return (
 		<div>
-			<Header />
+			<Header variant="film_detail" />
 			<FilmContentDetailsClient data={result.data as Film} />
 		</div>
 	);

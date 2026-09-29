@@ -9,59 +9,28 @@
 		font-family: UncutSans-regular;
 		line-height: 17px;
 	}
-	.posterLeft {
-		height: 100vh;
+
+	.leftElements {
 		position: fixed;
-		z-index: 2;
+		top: 0rem;
 		right: 0;
-		width: 39.5vw;
-		overflow: hidden;
-		img {
-			height: 100%;
-			width: 100%;
-			object-fit: cover;
-		}
-	}
-	.colonnesInfoFilms {
 		display: flex;
-		padding-top: 200px;
-		padding-left: 3rem;
-
-		gap: 2rem;
-		width: 60vw;
-		height: calc(100vh - 200px);
-		position: relative;
-		.colonneDetail {
-			width: 23vw;
-			display: flex;
-			flex-direction: column;
-			gap: 2rem;
-			height: auto;
-			overflow-y: auto;
-			padding-right: 2em;
-			padding-bottom: 2em;
-			/* barre de scroll */
-			scrollbar-width: none;
-
-			.directorYearDuration {
-				padding-bottom: 2em;
-				.filmTitle {
-					font-size: 32px;
-					line-height: 30px;
-					font-family: UncutSans-bold;
-					padding-bottom: 0.7em;
-				}
-				.releaseInfo {
-					display: flex;
-				}
+		gap: 3em;
+		.posterLeft {
+			height: 100vh;
+			width: 39.5vw;
+			overflow: hidden;
+			img {
+				height: 100%;
+				width: 100%;
+				object-fit: cover;
 			}
 		}
 
 		.colonneDetailDescription {
-			position: fixed;
 			width: 23vw;
 			padding-left: 1.5rem;
-			padding-top: 3rem;
+			padding-top: 15.6rem;
 			z-index: 10;
 			p {
 				font-size: 18px;
@@ -70,6 +39,42 @@
 			}
 		}
 	}
+
+	.colonnesInfoFilms {
+		display: flex;
+		padding-top: 200px;
+		padding-left: 3rem;
+		gap: 2rem;
+		width: 60vw;
+		height: calc(100vh - 200px);
+		position: relative;
+	}
+	.colonneDetail {
+		width: 23vw;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		height: auto;
+		overflow-y: auto;
+		padding-right: 2em;
+		padding-bottom: 2em;
+		/* barre de scroll */
+		scrollbar-width: none;
+
+		.directorYearDuration {
+			padding-bottom: 2em;
+			.filmTitle {
+				font-size: 32px;
+				line-height: 30px;
+				font-family: UncutSans-bold;
+				padding-bottom: 0.7em;
+			}
+			.releaseInfo {
+				display: flex;
+			}
+		}
+	}
+
 	.titreArrow {
 		display: flex;
 		width: 23vw;
@@ -119,5 +124,128 @@
 	.arrowUp {
 		transform: rotate(180deg);
 		/* transition: transform 0.3s ease;  */
+	}
+}
+
+@media only screen and (max-width: 1050px) and (orientation: portrait) {
+	.mainPageFilmDetail {
+		.leftElements {
+			flex-direction: column-reverse;
+			align-items: center;
+			top: 13em;
+			gap: 2em;
+			.posterLeft {
+				height: 80vw;
+				width: 40vh;
+			}
+			.colonneDetailDescription {
+				padding-top: unset;
+				width: 40vw;
+			}
+		}
+
+		.colonnesInfoFilms {
+			padding-left: 1.2em;
+			.colonneDetail {
+				width: 40vw;
+			}
+		}
+		.titreArrow {
+			width: 38vw;
+		}
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	.mainPageFilmDetail {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		overflow: unset;
+		padding-top: 200px;
+		width: 100%;
+		align-items: center;
+
+		.colonnesInfoFilms {
+			display: contents;
+			width: 32em;
+		}
+		.colonneDetail {
+			display: contents;
+			width: 100%;
+		}
+
+		/* 1. Titre / réalisateur / durée */
+		.directorYearDuration {
+			order: 1;
+			width: 32em;
+		}
+
+		/* 2. Description + poster */
+		.leftElements {
+			order: 2;
+			display: flex;
+			flex-direction: column;
+			position: unset;
+			width: 32em;
+
+			.posterLeft {
+				height: 40em !important;
+				width: 32em !important;
+				padding-top: 2em;
+				padding-bottom: 2em;
+			}
+			.colonneDetailDescription {
+				padding-top: unset;
+				width: 100%;
+				padding-left: unset;
+				z-index: 0;
+			}
+		}
+
+		/* 3. Tous les accordéons restants (Partenaires, Cinéaste(s), Festivals, Equipe, Images) */
+		.colonneDetail > div:not(.directorYearDuration) {
+			order: 3;
+			width: 32em;
+			/* margin: 0 auto; */
+		}
+
+		.titreArrow {
+			width: 100%;
+			padding-top: 2em;
+		}
+
+		.boxPartIsVisible,
+		.boxCineIsVisible,
+		.boxFestIsVisible,
+		.boxEquipeIsVisible,
+		.boxImageIsVisible {
+			padding-top: 2rem;
+			padding-bottom: 2rem;
+			width: 32em;
+		}
+	}
+}
+
+@media only screen and (max-width: 583px) {
+	.mainPageFilmDetail {
+		padding-top: 130px;
+		.colonnesInfoFilms,
+		.directorYearDuration,
+		.colonneDetail > div:not(.directorYearDuration),
+		.boxPartIsVisible,
+		.boxCineIsVisible,
+		.boxFestIsVisible,
+		.boxEquipeIsVisible,
+		.boxImageIsVisible {
+			width: 90%;
+		}
+		.leftElements {
+			width: 90%;
+			/* .posterLeft {
+				width: 100vw;
+				height: 20vh;
+			} */
+		}
 	}
 }

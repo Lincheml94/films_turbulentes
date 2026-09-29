@@ -5,8 +5,6 @@
 	padding-bottom: 15rem;
 	display: flex;
 
-	/* .categories {
-		width: 25vw; */
 	.categoriesFixed {
 		position: fixed;
 		display: flex;
@@ -26,13 +24,11 @@
 		}
 		.active {
 			p {
-				font-size: 20px; /* Nouvelle taille pour l'élément sélectionné */
-				/* Optionnel : ajouter du gras pour mieux le distinguer */
-				/* font-weight: bold; */
+				font-size: 20px;
 			}
 		}
 	}
-	/* } */
+
 	.posterPageFilms {
 		display: flex;
 		flex-wrap: wrap;
@@ -50,7 +46,7 @@
 				width: 250px;
 				height: 320px;
 				overflow: hidden;
-				margin: 2.5rem;
+				margin: 2rem;
 				p {
 					font-family: UncutSans-regular !important;
 				}
@@ -81,26 +77,26 @@
 		flex-direction: column;
 		padding-top: 10rem;
 
-		.categories {
-			.categoriesFixed {
-				flex-direction: row;
-				width: 100vw;
-				height: 6rem;
-				justify-content: center;
-				align-items: center;
-				background: #ffffff;
-				top: 122px;
-				z-index: 1;
-				padding-bottom: unset;
-				padding-right: unset;
-				padding-left: unset;
-				padding-top: 2rem;
-			}
+		.categoriesFixed {
+			flex-direction: row;
+			width: 100vw;
+			height: 6rem;
+			justify-content: center;
+			align-items: center;
+			background: #ffffff;
+			top: 122px;
+
+			padding-bottom: unset;
+			padding-right: unset;
+			padding-left: unset;
+			padding-top: 2rem;
 		}
+
 		.posterPageFilms {
 			padding-top: 5rem;
 			justify-content: center;
 			align-items: center;
+			padding-left: unset;
 			.filmBox {
 				.posterBox {
 					width: 320px;
@@ -113,27 +109,22 @@
 
 @media only screen and (max-width: 700px) {
 	.mainPageFilms {
-		padding-top: 8rem;
-		.categories {
-			.categoriesFixed {
-				padding-top: unset;
-			}
+		padding-top: 10rem;
+
+		.categoriesFixed {
+			flex-direction: column;
+			gap: 0.2rem;
+			align-items: center;
+			top: 80px;
+			padding-top: 1rem;
+			height: 9em;
 		}
 	}
 }
 
 @media only screen and (max-width: 583px) {
 	.mainPageFilms {
-		padding-top: 9rem;
-		.categories {
-			.categoriesFixed {
-				flex-direction: column;
-				gap: 0.2rem;
-				align-items: center;
-				top: 82px;
-				padding-top: 2rem;
-			}
-		}
+		padding-top: 11rem;
 		.posterPageFilms {
 			.filmBox {
 				.posterBox {
@@ -141,6 +132,18 @@
 					height: 350px;
 					margin: 0.5rem;
 				}
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 1700px) {
+	.mainPageFilms {
+		padding-top: 11rem;
+		.filmBox {
+			.posterBox {
+				width: 550px;
+				height: 420px;
 			}
 		}
 	}
