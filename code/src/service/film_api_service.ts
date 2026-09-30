@@ -57,7 +57,7 @@ class FilmApiService {
 
 	public insert = async (
 		data: FormData,
-		token: string,
+		// token: string,
 	): Promise<ApiResponse<Film>> => {
 		const request = new Request(
 			`${import.meta.env.VITE_API_URL}${this.prefix}`,
@@ -98,7 +98,7 @@ class FilmApiService {
 
 	public update = async (
 		data: FormData,
-		token: string,
+		// token: string,
 	): Promise<ApiResponse<Film>> => {
 		const request = new Request(
 			`${import.meta.env.VITE_API_URL}${this.prefix}`,
@@ -135,7 +135,7 @@ class FilmApiService {
 	// Si il n'y a pas de formulaire, on utilise le type (data:Film)
 	public delete = async (
 		data: Film,
-		token: string,
+		// token: string,
 	): Promise<ApiResponse<Film>> => {
 		const request = new Request(
 			`${import.meta.env.VITE_API_URL}${this.prefix}`,
