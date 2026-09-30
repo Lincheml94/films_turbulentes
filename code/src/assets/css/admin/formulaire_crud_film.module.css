@@ -1,0 +1,52 @@
+/* PAGE ACCUEIL LIVRES : AJOUTER / MODIFIER / SUPPRIMER*/
+h2 {
+	/* font-weight: bold; */
+	margin-bottom: 20px;
+}
+
+.book_crud_accueil {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+
+	button {
+		background: none;
+		border: none;
+	}
+
+	button:hover {
+		cursor: pointer;
+	}
+
+	.button_add {
+		width: 140px;
+		height: 39px;
+		background-color: #f3f3f3;
+		margin-bottom: 50px;
+	}
+	.button_add:hover {
+		background-color: #e5e5e5;
+	}
+
+	.book_crud {
+		display: flex;
+		align-items: center;
+		margin-bottom: 10px;
+		gap: 20px;
+		width: 600px;
+
+		.button_crud {
+			position: absolute;
+			left: 800px;
+			display: flex;
+			gap: 0.8rem;
+		}
+
+		.img_form {
+			width: 20px;
+		}
+	}
+	.book_crud:hover {
+		background-color: #f3f3f3;
+	}
+}
