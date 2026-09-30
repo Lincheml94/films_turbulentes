@@ -12,8 +12,6 @@ class RouterService {
 				lazy: () => import("../layouts/rout_layout"),
 
 				children: [
-					// // ADMIN
-					// {},
 					// // PUBLIC
 					{
 						id: "public",
@@ -24,17 +22,42 @@ class RouterService {
 							{
 								id: "home",
 								path: "",
-								lazy: () => import("../pages/index"),
+								lazy: () => import("../pages/public/index"),
 							},
 							{
 								id: "films",
 								path: "/films",
-								lazy: () => import("../pages/films"),
+								lazy: () => import("../pages/public/films"),
 							},
 							{
 								id: "film_detail",
 								path: "/films/:id",
-								lazy: () => import("../pages/page_film_detail"),
+								lazy: () => import("../pages/public/page_film_detail"),
+							},
+						],
+					},
+					// ADMIN
+					{
+						id: "admin",
+						path: "admin",
+						lazy: () => import("../layouts/admin_layout"),
+
+						children: [
+							{
+								id: "dashboard",
+								path: "",
+								index: true,
+								lazy: () => import("../pages/admin/index"),
+							},
+							{
+								id: "film_form",
+								path: "film_form",
+								lazy: () => import("../pages/admin/film_form"),
+							},
+							{
+								id: "film_delete",
+								path: "film_delete",
+								lazy: () => import("../pages/admin/film_delete"),
 							},
 						],
 					},

@@ -1,9 +1,9 @@
 import { use } from "react";
-import type { Film } from "../../models/film";
-import Header from "../components/header";
-import FilmContentDetailsClient from "../components/public/films/film_content_details_client";
-import type { FilmsDetailsParams } from "../models/params/films_details_params";
-import FilmApiService from "../service/film_api_service";
+import type { Film } from "../../../models/film";
+import Header from "../../components/header";
+import FilmContentDetailsClient from "../../components/public/films/film_content_details_client";
+import type { FilmsDetailsParams } from "../../models/params/films_details_params";
+import FilmApiService from "../../service/film_api_service";
 
 const PageFilmsDetails = ({ params }: FilmsDetailsParams) => {
 	const { id } = params;
