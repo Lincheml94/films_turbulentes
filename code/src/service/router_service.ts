@@ -51,12 +51,12 @@ class RouterService {
 							},
 							{
 								id: "film_form",
-								path: "film_form",
+								path: "film_form/:id?",
 								lazy: () => import("../pages/admin/film_form"),
 							},
 							{
 								id: "film_delete",
-								path: "film_delete",
+								path: "film_delete/:id",
 								lazy: () => import("../pages/admin/film_delete"),
 							},
 						],

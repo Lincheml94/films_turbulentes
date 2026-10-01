@@ -5,6 +5,7 @@ import AdminFilmFormContent from "../../components/admin/admin_film_form_content
 import type { AdminFilmParams } from "../../models/params/admin_film_params";
 import CategoryApiService from "../../service/category_api_service";
 import FilmApiService from "../../service/film_api_service";
+import AdminFilmFormValidator from "../../validator/admin_film_form_validator";
 
 const FilmForm = ({ params }: AdminFilmParams) => {
 	// récupérer la variable d'URL
@@ -30,7 +31,7 @@ const FilmForm = ({ params }: AdminFilmParams) => {
 		<AdminFilmFormContent
 			dataToUpdate={dataToUpdate}
 			categories={categories}
-			// validator={new AdminBookFormValidator().validate}
+			validator={new AdminFilmFormValidator().validate}
 		/>
 	);
 };

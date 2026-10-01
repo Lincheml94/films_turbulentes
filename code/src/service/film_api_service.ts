@@ -79,9 +79,9 @@ class FilmApiService {
 					"Content-Type": application/json
 					},
 				*/
-				headers: {
-					Authorization: `Bearer ${token}`,
-				},
+				// headers: {
+				// 	Authorization: `Bearer ${token}`,
+				// },
 			},
 		);
 		const response = await fetch(request);
@@ -120,9 +120,9 @@ class FilmApiService {
 					"Content-Type": application/json
 					},
 				*/
-				headers: {
-					Authorization: `Bearer ${token}`,
-				},
+				// headers: {
+				// 	Authorization: `Bearer ${token}`,
+				// },
 			},
 		);
 		const response = await fetch(request);
@@ -133,40 +133,58 @@ class FilmApiService {
 	};
 
 	// Si il n'y a pas de formulaire, on utilise le type (data:Film)
-	public delete = async (
-		data: Film,
-		// token: string,
-	): Promise<ApiResponse<Film>> => {
+	// public delete = async (
+	// 	data: Film,
+	// 	// token: string,
+	// ): Promise<ApiResponse<Film>> => {
+	// 	const request = new Request(
+	// 		`${import.meta.env.VITE_API_URL}${this.prefix}`,
+	// 		{
+	// 			method: "delete",
+	// 			/*
+	// 			Si le formulaire contient un champ de fichier :
+	// 				la propriété body renvoie un objet FormData
+	// 			Si le formulaire ne contient pas de champ de fichier
+	// 				la propriété body renvoie du JSON : JSON.stringfy(...)
+	// 				Ajouter l'en-tête Content-Type: application/json
+	// 			*/
+
+	// 			headers: {
+	// 				"Content-Type": "application/json",
+	// 				Authorization: `Bearer ${token}`,
+	// 			},
+	// 			body: JSON.stringify(data),
+	// 			/*
+	// 				version sans fichiers :
+	// 				body:JSON.stringfy(data)
+	// 				headers: {
+	// 				"Content-Type": application/json
+	// 				},
+	// 			*/
+	// 		},
+	// 	);
+	// 	const response = await fetch(request);
+
+	// 	const results = await response.json();
+
+	// 	return results;
+	// };
+	public delete = async (data: Partial<Film>): Promise<ApiResponse<Film>> => {
 		const request = new Request(
 			`${import.meta.env.VITE_API_URL}${this.prefix}`,
 			{
 				method: "delete",
-				/*
-				Si le formulaire contient un champ de fichier :
-					la propriété body renvoie un objet FormData
-				Si le formulaire ne contient pas de champ de fichier
-					la propriété body renvoie du JSON : JSON.stringfy(...)
-					Ajouter l'en-tête Content-Type: application/json
-				*/
-
 				headers: {
 					"Content-Type": "application/json",
-					Authorization: `Bearer ${token}`,
 				},
+				// sérialiser : transformer une donnee complexe (array, objet)en chain de caracteres
+				// deserialiser : transformer une  chain de caracteres
 				body: JSON.stringify(data),
-				/*
-					version sans fichiers :
-					body:JSON.stringfy(data)
-					headers: {
-					"Content-Type": application/json
-					},
-				*/
 			},
 		);
+
 		const response = await fetch(request);
-
 		const results = await response.json();
-
 		return results;
 	};
 }
