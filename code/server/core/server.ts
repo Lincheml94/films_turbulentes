@@ -3,6 +3,7 @@ import express, { type Express, type Router } from "express";
 import CategoryRouter from "../router/category_router";
 import FilmRouter from "../router/film_router";
 import HomepageRouter from "../router/homepage_router";
+import SecurityRouter from "../router/security_router";
 import UserRouter from "../router/user_router";
 
 class Server {
@@ -31,6 +32,7 @@ class Server {
 		this.router.use("/api/film", new FilmRouter().getRoutesList());
 		this.router.use("/api/category", new CategoryRouter().getRoutesList());
 		this.router.use("/api/user", new UserRouter().getRoutesList());
+		this.router.use("/api", new SecurityRouter().getRoutes());
 	};
 	// créer un serveur Node.js / Express
 	public createServer = (): express.Express => {

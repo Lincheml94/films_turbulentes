@@ -34,6 +34,11 @@ class RouterService {
 								path: "/films/:id",
 								lazy: () => import("../pages/public/page_film_detail"),
 							},
+							{
+								id: "login",
+								path: "/login",
+								lazy: () => import("../pages/admin/login"),
+							},
 						],
 					},
 					// ADMIN

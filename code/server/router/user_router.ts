@@ -9,7 +9,7 @@ class UserRouter {
 		// création de la route d'accueil en GET en utilisant le préfixe /
 		this.router.get("/", new UserController().index);
 		this.router.get("/:id", new UserController().selectOne);
-		this.router.put("/:id", new UserController().update);
+		this.router.put("/", new UserController().update);
 
 		return this.router;
 	};
