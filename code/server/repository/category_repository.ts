@@ -1,7 +1,6 @@
 import type { Category } from "../../models/category";
 import type { Film } from "../../models/film";
 import MySQLService from "../service/mysql_service";
-import FilmRepository from "./film_repository";
 
 class CategoryRepository {
 	private table: string = "category";

@@ -1,7 +1,5 @@
 import fs from "node:fs/promises";
-import type { Express } from "express";
 import { fileTypeFromFile } from "file-type";
-import type { Multer } from "multer";
 
 /*
  {

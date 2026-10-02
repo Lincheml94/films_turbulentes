@@ -12,6 +12,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "cors": "^2.8.6",
     "express": "^5.2.1",
     "file-type": "^22.0.2",
     "multer": "^2.3.0",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.11",
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/multer": "^2.2.0",
     "@types/react": "^19.2.18",
@@ -34,6 +36,7 @@
     "@vitejs/plugin-react": "latest",
     "@vitejs/plugin-rsc": "latest",
     "rsc-html-stream": "^0.0.8",
+    "typescript": "^7.0.2",
     "vite": "^8.2.2"
   }
 }

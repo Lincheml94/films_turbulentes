@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router";
+import { Link } from "react-router";
 import type { Category } from "../../../../models/category";
 import type { Film } from "../../../../models/film";
 import styles from "../../../assets/css/public/catalogue_films.module.css";

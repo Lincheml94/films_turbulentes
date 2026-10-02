@@ -61,12 +61,16 @@ const AdminFilmFormContent = ({
 
 	useEffect(() => {
 		if (dataToUpdate) {
+			// les valeurs null de la base deviennent "" (Zod refuse null sur z.string().optional())
+			// le repository retransforme les "" en NULL avant l'enregistrement
 			const normalizeData = {
-				...dataToUpdate,
+				...Object.fromEntries(
+					Object.entries(dataToUpdate).map(([key, value]) => [
+						key,
+						value ?? "",
+					]),
+				),
 				category_id: dataToUpdate.category_id,
-				release_date: dataToUpdate.release_date
-					? String(dataToUpdate.release_date)
-					: "",
 			};
 			setRemovedImages([]);
 			reset(normalizeData as unknown as Partial<Film>);
@@ -91,70 +95,68 @@ const AdminFilmFormContent = ({
 			...data,
 			// On s'assure que category_id est bien transmis (il est déjà number grâce au valueAsNumber du select)
 			category_id: data.category_id,
-			// Les dates et nombres sont déjà gérés par le formulaire, on les laisse tels quels
-			// Les images gérées par la logique de suppression sont dans 'data', on les garde
+			// Un champ vide devient undefined (sinon Zod le convertit en 0 et refuse)
+			duration: data.duration ? Number(data.duration) : undefined,
+			// Les fichiers arrivent sous forme de FileList : on récupère le premier fichier
+			poster: (data.poster as any)?.[0],
+			director_1_image: (data.director_1_image as any)?.[0],
+			director_2_image: (data.director_2_image as any)?.[0],
+			director_3_image: (data.director_3_image as any)?.[0],
+			image_1: (data.image_1 as any)?.[0],
+			image_2: (data.image_2 as any)?.[0],
+			image_3: (data.image_3 as any)?.[0],
+			image_4: (data.image_4 as any)?.[0],
+			image_5: (data.image_5 as any)?.[0],
 		};
 
-		// 2. VALIDATION CÔTÉ SERVEUR
-		// Vérifiez que vous avez bien passé la prop 'validator' dans le composant parent
-		if (validator) {
-			const validation = await validator(normalizeData);
+		// validation de la saisie avec le validateur côté serveur
+		const validation = await validator(normalizeData);
 
-			// si la validation échoue (Zod renvoie une Error)
-			if (validation instanceof Error) {
-				// stocker les messages d'erreur
-				let errors: any = {};
+		// si la validation échoue
+		if (validation instanceof Error) {
+			// stocker les messages d'erreur
+			let errors = {};
+			// récupérer les messages d'erreur
+			(JSON.parse(validation.message) as ZodIssue[]).map((item) => {
+				errors = { ...errors, [item.path.shift() as string]: item.message };
+				return errors;
+			});
 
-				// Récupérer les messages d'erreur depuis l'objet JSON de l'erreur
-				// Note: validation.message contient la string JSON de l'erreur Zod
-				(JSON.parse(validation.message) as ZodIssue[]).map((item) => {
-					const fieldName = item.path.shift() as string;
-					errors = { ...errors, [fieldName]: item.message };
-					return errors;
-				});
-
-				// Définir l'état affichant les messages d'erreur côté serveur
-				setServerErrors(errors);
-
-				// Stopper l'exécution du script (on ne soumet pas le formulaire)
-				return;
-			}
+			// définir l'état affichant les messages d'erreur côté serveur
+			setServerErrors(errors);
+			// stopper l'exécution du script
+			return;
 		}
+
 		const formData = new FormData();
 		formData.set("id", data.id ? String(data.id) : "");
 		formData.set("title", data.title as string);
 
+		// Ajoute un fichier (File), ou "DELETE" si l'image est marquée pour suppression
+		// Si aucun fichier n'est choisi, rien n'est envoyé
+		const appendFile = (name: string, file: unknown) => {
+			if (removedImages.includes(name)) {
+				formData.set(name, "DELETE");
+			} else if (file instanceof File) {
+				formData.set(name, file);
+			}
+		};
+
 		// Gestion Poster
-		if (removedImages.includes("poster")) {
-			formData.set("poster", "DELETE");
-		} else if (data.poster) {
-			formData.set("poster", data.poster as any);
-		}
+		appendFile("poster", normalizeData.poster);
 
 		// Réalisateurs
 		formData.set("director_1", data.director_1 as string);
 		formData.set("director_1_bio", data.director_1_bio as string);
-		if (removedImages.includes("director_1_image")) {
-			formData.set("director_1_image", "DELETE");
-		} else if (data.director_1_image) {
-			formData.set("director_1_image", data.director_1_image as any);
-		}
+		appendFile("director_1_image", normalizeData.director_1_image);
 
 		formData.set("director_2", data.director_2 as string);
 		formData.set("director_2_bio", data.director_2_bio as string);
-		if (removedImages.includes("director_2_image")) {
-			formData.set("director_2_image", "DELETE");
-		} else if (data.director_2_image) {
-			formData.set("director_2_image", data.director_2_image as any);
-		}
+		appendFile("director_2_image", normalizeData.director_2_image);
 
 		formData.set("director_3", data.director_3 as string);
 		formData.set("director_3_bio", data.director_3_bio as string);
-		if (removedImages.includes("director_3_image")) {
-			formData.set("director_3_image", "DELETE");
-		} else if (data.director_3_image) {
-			formData.set("director_3_image", data.director_3_image as any);
-		}
+		appendFile("director_3_image", normalizeData.director_3_image);
 
 		// Détails & Champs manquants
 		formData.set("description", data.description as string);
@@ -174,12 +176,7 @@ const AdminFilmFormContent = ({
 
 		// Images 1 à 5
 		([1, 2, 3, 4, 5] as const).forEach((num) => {
-			const fieldName = `image_${num}` as keyof Film;
-			if (removedImages.includes(fieldName)) {
-				formData.set(fieldName, "DELETE");
-			} else if (data[fieldName]) {
-				formData.set(fieldName, data[fieldName] as any);
-			}
+			appendFile(`image_${num}`, normalizeData[`image_${num}`]);
 		});
 
 		const process = dataToUpdate
@@ -204,7 +201,6 @@ const AdminFilmFormContent = ({
 	) => {
 		const isRemoved = removedImages.includes(fieldName as string);
 		// Vérifie si on a une valeur existante (string) ET qu'elle n'est pas marquée pour suppression
-		// Ou si on vient de sélectionner un fichier (géré par react-hook-form, mais visuellement on gère surtout l'existant ici)
 		const hasExistingImage =
 			!isRemoved &&
 			currentValue &&
@@ -254,15 +250,18 @@ const AdminFilmFormContent = ({
 					</div>
 				)}
 
-				<input
-					type="file"
-					id={id}
-					{...register(fieldName, registerOpts)}
-					className={styles["file-input"]}
-				/>
-				<span className={styles.msg_erreur} role="alert">
-					{(errors[fieldName] as any)?.message as string}
-				</span>
+				<p>
+					<input
+						type="file"
+						id={id}
+						{...register(fieldName, registerOpts)}
+						className={styles["file-input"]}
+					/>
+				</p>
+				<p className={styles.msg_erreur} role="alert">
+					{((errors[fieldName] as any)?.message as string) ??
+						(serverErrors?.[fieldName] as string)}
+				</p>
 			</div>
 		);
 	};
@@ -286,9 +285,9 @@ const AdminFilmFormContent = ({
 							id={titleId}
 							{...register("title", { required: "Le titre est obligatoire" })}
 						/>
-						<span className={styles.msg_erreur} role="alert">
-							{errors.title?.message ?? serverErrors?.title}
-						</span>
+					</p>
+					<p className={styles.msg_erreur} role="alert">
+						{errors.title?.message ?? serverErrors?.title}
 					</p>
 
 					{/* POSTER */}
@@ -318,9 +317,9 @@ const AdminFilmFormContent = ({
 								</option>
 							))}
 						</select>
-						<span className={styles.msg_erreur} role="alert">
-							{errors.category_id?.message ?? serverErrors?.category_id}
-						</span>
+					</p>
+					<p className={styles.msg_erreur} role="alert">
+						{errors.category_id?.message ?? serverErrors?.category_id}
 					</p>
 
 					{/* DESCRIPTION */}
@@ -332,9 +331,9 @@ const AdminFilmFormContent = ({
 								required: "La description est obligatoire",
 							})}
 						/>
-						<span className={styles.msg_erreur} role="alert">
-							{errors.description?.message ?? serverErrors?.description}
-						</span>
+					</p>
+					<p className={styles.msg_erreur} role="alert">
+						{errors.description?.message ?? serverErrors?.description}
 					</p>
 
 					{/* REALISATEUR 1 (Toujours visible) */}
@@ -347,6 +346,9 @@ const AdminFilmFormContent = ({
 								id={director1Id}
 								{...register("director_1", { required: "Obligatoire" })}
 							/>
+						</p>
+						<p className={styles.msg_erreur} role="alert">
+							{errors.director_1?.message ?? serverErrors?.director_1}
 						</p>
 						<p>
 							<label htmlFor={director1bioId}>Biographie</label>
@@ -450,21 +452,49 @@ const AdminFilmFormContent = ({
 						<legend>Détails du film</legend>
 						<p>
 							<label htmlFor={typeId}>Type (Fiction, Docu, etc.)</label>
-							<input type="text" id={typeId} {...register("type")} />
+							<input
+								type="text"
+								id={typeId}
+								{...register("type", { required: "Le type est obligatoire" })}
+							/>
+						</p>
+						<p className={styles.msg_erreur} role="alert">
+							{errors.type?.message ?? serverErrors?.type}
 						</p>
 
 						<p>
 							<label htmlFor={releasedateId}>Année de sortie</label>
 							<input
-								type="date"
+								type="number"
 								id={releasedateId}
-								{...register("release_date")}
+								min={1888}
+								max={2100}
+								placeholder="2024"
+								{...register("release_date", {
+									// un champ vide devient undefined
+									setValueAs: (v) =>
+										v === "" || v == null ? undefined : Number(v),
+								})}
 							/>
+						</p>
+						<p className={styles.msg_erreur} role="alert">
+							{errors.release_date?.message ?? serverErrors?.release_date}
 						</p>
 
 						<p>
 							<label htmlFor={durationId}>Durée (minutes)</label>
-							<input type="number" id={durationId} {...register("duration")} />
+							<input
+								type="number"
+								id={durationId}
+								{...register("duration", {
+									// un champ vide devient undefined (sinon Zod le convertit en 0 et refuse)
+									setValueAs: (v) =>
+										v === "" || v == null ? undefined : Number(v),
+								})}
+							/>
+						</p>
+						<p className={styles.msg_erreur} role="alert">
+							{errors.duration?.message ?? serverErrors?.duration}
 						</p>
 					</fieldset>
 

@@ -1,3 +1,4 @@
+import cors from "cors";
 import express, { type Express, type Router } from "express";
 import CategoryRouter from "../router/category_router";
 import FilmRouter from "../router/film_router";
@@ -11,6 +12,12 @@ class Server {
 	private router: Router = express.Router();
 	constructor() {
 		this.app.use(express.json());
+
+		this.app.use(
+			cors({
+				origin: process.env.ORIGINS?.split(","),
+			}),
+		);
 
 		// lier l'application Express au routeur
 		this.app.use(this.router);

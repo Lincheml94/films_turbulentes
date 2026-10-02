@@ -35,15 +35,14 @@ class AdminFilmFormValidator {
 				.number({ message: "La catégorie doit être un nombre valide" })
 				.positive("Veuillez sélectionner une catégorie valide"),
 
-			// Dates et Nombres (Optionnels mais validés si présents)
-			release_date: z.string().optional(), // Le formulaire envoie une string "YYYY-MM-DD" ou vide
-
-			duration: z.coerce
+			release_date: z.coerce
 				.number()
-				.positive("La durée doit être un nombre positif")
+				.int("L'année doit être un nombre entier")
+				.min(1888, "L'année doit être supérieure ou égale à 1888")
+				.max(2100, "L'année doit être inférieure ou égale à 2100")
 				.optional(),
 
-			type: z.string().optional(),
+			type: z.string().min(1, "Le type est obligatoire"),
 
 			// Biographies et Textes longs (Optionnels)
 			director_1_bio: z.string().optional(),
