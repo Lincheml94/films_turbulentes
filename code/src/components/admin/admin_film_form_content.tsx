@@ -135,10 +135,11 @@ const AdminFilmFormContent = ({
 		// Ajoute un fichier (File), ou "DELETE" si l'image est marquée pour suppression
 		// Si aucun fichier n'est choisi, rien n'est envoyé
 		const appendFile = (name: string, file: unknown) => {
-			if (removedImages.includes(name)) {
-				formData.set(name, "DELETE");
-			} else if (file instanceof File) {
+			if (file instanceof File) {
 				formData.set(name, file);
+			} else if (removedImages.includes(name)) {
+				// flag lu par le repository : delete_image_3, delete_director_1_image, etc.
+				formData.set(`delete_${name}`, "true");
 			}
 		};
 
