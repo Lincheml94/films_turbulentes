@@ -226,7 +226,7 @@ class FilmRepository {
 			}
 
 			// Gestion spécifique pour les flags de suppression d'images
-			if (field.startsWith("image_")) {
+			if (field.startsWith("image_") || field.endsWith("_image")) {
 				const deleteFlag = (data as any)[`delete_${field}`];
 				if (deleteFlag === "true" || deleteFlag === true) {
 					cleanData[field] = null;
