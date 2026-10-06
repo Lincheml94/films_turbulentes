@@ -25,7 +25,7 @@
 	margin-bottom: 20px;
 } */
 
-.book_crud_accueil {
+.filmCrudAccueil {
 	padding: 2em;
 	padding-top: 8em;
 	display: flex;
@@ -46,7 +46,7 @@
 		background-color: #e5e5e5;
 	}
 
-	.book_crud {
+	.filmCrud {
 		display: flex;
 		align-items: center;
 		margin-bottom: 10px;
@@ -56,8 +56,14 @@
 			display: flex;
 			gap: 2em;
 			align-items: center;
-			.img_form {
+			.imgBox {
 				width: 80px;
+				height: 100px;
+				overflow: hidden;
+				.img_form {
+					height: 100%;
+					object-fit: cover;
+				}
 			}
 		}
 
@@ -66,7 +72,7 @@
 			gap: 0.8rem;
 		}
 	}
-	.book_crud:hover {
+	.filmCrud:hover {
 		background-color: #f3f3f3;
 	}
 }
@@ -221,9 +227,10 @@
 }
 
 @media only screen and (max-width: 930px) {
-	.book_crud_accueil {
+	.filmCrudAccueil {
 		padding-top: 2em;
-		.book_crud {
+		padding-bottom: 5em;
+		.filmCrud {
 			width: 500px;
 			.button_crud {
 				left: 500px;
@@ -233,35 +240,45 @@
 	.adminHeader {
 		display: contents;
 		.logOutButton {
-			position: absolute;
-			bottom: 2em;
+			position: fixed;
+			bottom: 0em;
+			right: 1em;
+			padding: 1em;
 		}
 	}
 }
 
 @media only screen and (max-width: 580px) {
-	.book_crud_accueil {
-		.book_crud {
+	.filmCrudAccueil {
+		width: 100%;
+		.filmCrud {
 			flex-direction: column;
 			width: auto;
 			padding: 0.8rem;
+			align-items: center;
+			gap: 3em;
+			.filmImgTitle {
+				flex-direction: column;
+			}
 			.button_crud {
 				position: unset;
-			}
-			.img_form {
-				width: 5rem;
 			}
 		}
 	}
 	.adminHeader {
 		.adminLogoTitle {
-			display: flex;
-			flex-direction: column;
-			align-items: flex-start;
-			gap: 0em;
+			gap: 1em;
 			.logoInAdmin {
 				width: 60px;
 			}
+		}
+		.logOutButton {
+			border-top: black solid 0.03em;
+			background: #ffffff;
+			display: flex;
+			justify-content: center;
+			right: 0;
+			left: 0;
 		}
 	}
 }

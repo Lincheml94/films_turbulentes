@@ -117,7 +117,7 @@ const CarrouselAccueilClient = ({
 			</div>
 
 			{/* <!-- TEST VISUEL (à supprimer une fois que ça marche) --> */}
-			<div
+			{/* <div
 				style={{
 					position: "absolute",
 					top: 0,
@@ -129,7 +129,7 @@ const CarrouselAccueilClient = ({
 				}}
 			>
 				Slide: {currentIndex + 1} / {totalSlides}
-			</div>
+			</div> */}
 		</div>
 	);
 };

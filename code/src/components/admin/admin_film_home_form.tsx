@@ -9,7 +9,7 @@ const AdminFilmHomeFormContent = () => {
 	const results = use(new FilmApiService().selectAll()).data;
 
 	return (
-		<div className={styles.book_crud_accueil}>
+		<div className={styles.filmCrudAccueil}>
 			<div>
 				<Link to={"/admin/film_form"}>
 					<button type="submit" className={styles.button_add}>
@@ -20,13 +20,15 @@ const AdminFilmHomeFormContent = () => {
 			{/* Affichage des livres */}
 			{results?.map((item) => {
 				return (
-					<div className={styles.book_crud} key={item.id}>
+					<div className={styles.filmCrud} key={item.id}>
 						<div className={styles.filmImgTitle}>
-							<img
-								src={`/img/${item.poster}`}
-								alt={item.title}
-								className={styles.img_form}
-							/>
+							<div className={styles.imgBox}>
+								<img
+									src={`/img/${item.poster}`}
+									alt={item.title}
+									className={styles.img_form}
+								/>
+							</div>
 							<p>{item.title}</p>
 						</div>
 

@@ -64,7 +64,7 @@ const Header = ({ variant }: HeaderProps) => {
 						>
 							<ul>
 								<li>
-									<NavLink to="/about" onClick={closeMenu}>
+									<NavLink to="/a_propos" onClick={closeMenu}>
 										A propos
 									</NavLink>
 								</li>
