@@ -1,18 +1,36 @@
-/* PAGE ACCUEIL LIVRES : AJOUTER / MODIFIER / SUPPRIMER*/
-h2 {
-	/* font-weight: bold; */
-	margin-bottom: 20px;
+/* Admin Titre */
+.adminHeader {
+	padding-left: 1em;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 90%;
+	gap: 2em;
+	position: fixed;
+	top: 0;
+	background: #ffffff;
+	z-index: 1;
+	.adminLogoTitle {
+		display: flex;
+		align-items: center;
+		gap: 2em;
+		.logoInAdmin {
+			width: 80px;
+		}
+	}
 }
 
+/* PAGE ACCUEIL LIVRES : AJOUTER / MODIFIER / SUPPRIMER*/
+/* h2 {
+	margin-bottom: 20px;
+} */
+
 .book_crud_accueil {
+	padding: 2em;
+	padding-top: 8em;
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
-
-	button {
-		background: none;
-		border: none;
-	}
+	width: 10em;
 
 	button:hover {
 		cursor: pointer;
@@ -32,18 +50,20 @@ h2 {
 		display: flex;
 		align-items: center;
 		margin-bottom: 10px;
-		gap: 20px;
 		width: 600px;
-
-		.button_crud {
-			position: absolute;
-			left: 800px;
+		justify-content: space-between;
+		.filmImgTitle {
 			display: flex;
-			gap: 0.8rem;
+			gap: 2em;
+			align-items: center;
+			.img_form {
+				width: 80px;
+			}
 		}
 
-		.img_form {
-			width: 20px;
+		.button_crud {
+			display: flex;
+			gap: 0.8rem;
 		}
 	}
 	.book_crud:hover {
@@ -200,24 +220,21 @@ h2 {
 	font-weight: bold;
 }
 
-/* @media only screen and (max-width: 900px) {
+@media only screen and (max-width: 930px) {
 	.book_crud_accueil {
-		.book_crud {
-			width: 600px;
-			.button_crud {
-				left: 600px;
-			}
-		}
-	}
-}
-
-@media only screen and (max-width: 700px) {
-	.book_crud_accueil {
+		padding-top: 2em;
 		.book_crud {
 			width: 500px;
 			.button_crud {
 				left: 500px;
 			}
+		}
+	}
+	.adminHeader {
+		display: contents;
+		.logOutButton {
+			position: absolute;
+			bottom: 2em;
 		}
 	}
 }
@@ -236,4 +253,15 @@ h2 {
 			}
 		}
 	}
-} */
+	.adminHeader {
+		.adminLogoTitle {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0em;
+			.logoInAdmin {
+				width: 60px;
+			}
+		}
+	}
+}

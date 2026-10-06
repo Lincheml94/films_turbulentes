@@ -2,8 +2,9 @@
 import type React from "react";
 import { useId } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import type { User } from "../../../models/user";
+import styles from "../../assets/css/admin/login.module.css";
 import SecurityApiService from "../../service/security_api_service";
 import SecurityService from "../../service/security_service";
 
@@ -39,36 +40,51 @@ const FormulaireLogin = (): React.JSX.Element => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit(submitForm)}>
-			<h2>Se connecter</h2>
-			<label htmlFor={userNameId}>username</label>
-			<input
-				type="text"
-				id={userNameId}
-				{...register("username", {
-					required: "Le username est obligatoire",
-					maxLength: {
-						value: 100,
-						message: "un username doit comporter au minimum 1 caractère",
-					},
-				})}
-			/>
+		<div className={styles.loginFormBox}>
+			<NavLink to="/">
+				<img
+					className={styles.logoInLogin}
+					src="/img/logo/LFDT_ecusson_noir.png"
+					alt="logo"
+				/>
+			</NavLink>
+			<form className={styles.loginForm} onSubmit={handleSubmit(submitForm)}>
+				{/* <p>Se connecter</p> */}
+				<label htmlFor={userNameId}>
+					<p>username</p>
+				</label>
+				<input
+					type="text"
+					id={userNameId}
+					{...register("username", {
+						required: "Le username est obligatoire",
+						maxLength: {
+							value: 100,
+							message: "un username doit comporter au minimum 1 caractère",
+						},
+					})}
+				/>
 
-			<label htmlFor={passwordId}>mot de passe</label>
-			<input
-				type="password"
-				id={passwordId}
-				{...register("password", {
-					required: "Le mot de passe est obligatoire",
-					maxLength: {
-						value: 100,
-						message: "un username doit comporter au minimum 5 caractères",
-					},
-				})}
-			/>
+				<label htmlFor={passwordId}>
+					<p>mot de passe</p>
+				</label>
+				<input
+					type="password"
+					id={passwordId}
+					{...register("password", {
+						required: "Le mot de passe est obligatoire",
+						maxLength: {
+							value: 100,
+							message: "un username doit comporter au minimum 5 caractères",
+						},
+					})}
+				/>
 
-			<button type="submit">se connecter</button>
-		</form>
+				<button className={styles.loginButton} type="submit">
+					<p>se connecter</p>
+				</button>
+			</form>
+		</div>
 	);
 };
 

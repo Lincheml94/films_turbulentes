@@ -21,12 +21,14 @@ const AdminFilmHomeFormContent = () => {
 			{results?.map((item) => {
 				return (
 					<div className={styles.book_crud} key={item.id}>
-						<img
-							src={`/img/${item.poster}`}
-							alt={item.title}
-							className={styles.img_form}
-						/>
-						<p>{item.title}</p>
+						<div className={styles.filmImgTitle}>
+							<img
+								src={`/img/${item.poster}`}
+								alt={item.title}
+								className={styles.img_form}
+							/>
+							<p>{item.title}</p>
+						</div>
 
 						<div className={styles.button_crud} key={item.id}>
 							<Link to={`/admin/film_form/${item.id}`}>

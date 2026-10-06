@@ -1,12 +1,11 @@
-import { ImCross } from "react-icons/im";
 import { NavLink } from "react-router";
-import style from "../../assets/css/login_button.module.css";
+import styles from "../../assets/css/admin/formulaire_crud_film.module.css";
 
 const UnlogButton = () => {
 	return (
-		<button type="submit" className={style.button_login}>
+		<button type="submit">
 			<NavLink to={"/login"}>
-				<ImCross />
+				<p>Se déconnecter</p>
 			</NavLink>
 		</button>
 	);
