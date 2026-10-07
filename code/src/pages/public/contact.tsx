@@ -1,12 +1,13 @@
 import Header from "../../components/header";
+import ContactContent from "../../components/public/contact";
 
-const Contact = () => {
+const PageContact = () => {
 	return (
 		<>
 			<Header />
-			<h1>contact</h1>;
+			<ContactContent />;
 		</>
 	);
 };
 
-export default Contact;
+export default PageContact;

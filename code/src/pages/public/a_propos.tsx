@@ -1,12 +1,13 @@
 import Header from "../../components/header";
+import APropos from "../../components/public/a_propos";
 
-const Apropos = () => {
+const PageApropos = () => {
 	return (
 		<>
-			<Header />
-			<h1>A propos</h1>;
+			<Header variant="film_detail" />
+			<APropos />
 		</>
 	);
 };
 
-export default Apropos;
+export default PageApropos;

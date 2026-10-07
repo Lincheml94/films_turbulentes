@@ -1,0 +1,124 @@
+.aProposContent {
+	display: flex;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	.contentRight {
+		width: calc(100vw - 39.5vw);
+		padding-top: 12em;
+		height: calc(100vh - 200px);
+		position: relative;
+		overflow: auto;
+		scrollbar-width: none;
+		.textBio {
+			width: 80%;
+			padding: 3em;
+		}
+	}
+
+	.bioBoxes {
+		display: flex;
+		gap: 4em;
+		padding-left: 3em;
+		padding-top: 5em;
+		.bioBox {
+			width: 40%;
+			.boxNonoIsClose,
+			.boxCharlotteIsClose {
+				display: none;
+			}
+			.boxCharlotteIsVisible,
+			.boxNonoIsVisible {
+				display: block;
+				padding-top: 2rem;
+				padding-bottom: 2rem;
+				.bio {
+					width: 100%;
+				}
+			}
+			.titreArrow {
+				display: flex;
+				justify-content: space-between;
+				.boxTitle {
+					font-family: UncutSans-bold;
+				}
+			}
+			/* flèche */
+			.arrowUp {
+				transform: rotate(180deg);
+			}
+		}
+	}
+	.imgLeft {
+		height: 100vh;
+		width: 39.5vw;
+		position: fixed;
+		top: 0rem;
+		right: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		img {
+			height: 90%;
+			object-fit: contain;
+		}
+	}
+}
+
+@media only screen and (max-width: 1050px) and (orientation: portrait) {
+	.aProposContent {
+		flex-direction: column;
+		overflow: unset;
+		height: 100%;
+		padding-top: unset;
+		width: 100%;
+		align-items: center;
+		.contentRight {
+			height: 100%;
+			width: 80%;
+			position: unset;
+
+			.textBio {
+				width: 100%;
+				padding: unset;
+			}
+			.bioBoxes {
+				padding-left: unset;
+			}
+		}
+		.imgLeft {
+			position: unset;
+			height: 80vh;
+			width: 90%;
+			padding-top: 5em;
+		}
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	.aProposContent {
+		.contentRight {
+			padding-top: 10em;
+		}
+	}
+}
+@media only screen and (max-width: 583px) {
+	.aProposContent {
+		.contentRight {
+			padding-top: 8em;
+		}
+		.bioBoxes {
+			flex-direction: column;
+			.bioBox {
+				width: 100%;
+			}
+		}
+		.imgLeft {
+			padding-right: unset;
+			padding-top: unset;
+			img {
+				height: 70%;
+			}
+		}
+	}
+}
