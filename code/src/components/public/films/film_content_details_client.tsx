@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { Link } from "react-router";
 import styles from "../../../assets/css/public/film_detail.module.css";
 import type { FilmContentDetailsProps } from "../../../models/props/films/films_content_details_props";
 
@@ -215,11 +216,18 @@ const FilmContentDetailsClient = ({ data }: FilmContentDetailsProps) => {
 									className={`${styles.boxImageIsClose} ${imagesIsVisible ? styles.boxImageIsVisible : ""}`}
 								>
 									{validImages.map((img, index) => (
-										<img
+										<a
 											key={index}
-											src={`/img/${img}`}
-											alt={`${data.title} - still ${index + 1}`}
-										/>
+											href={`/img/${img}`}
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<img
+												key={index}
+												src={`/img/${img}`}
+												alt={`${data.title} - still ${index + 1}`}
+											/>
+										</a>
 									))}
 								</div>
 							</div>

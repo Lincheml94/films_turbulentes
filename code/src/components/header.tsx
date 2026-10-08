@@ -23,76 +23,83 @@ const Header = ({ variant }: HeaderProps) => {
 				? `${styles.header} ${styles.headerFilm}`
 				: styles.header;
 	return (
-		<>
-			<header className={headerClass}>
-				<div className={styles.logoTexte}>
-					<NavLink to="/" onClick={closeMenu}>
+		<header className={headerClass}>
+			<div className={styles.logoTexte}>
+				<NavLink to="/" onClick={closeMenu}>
+					<img
+						className={styles.logo}
+						src="/img/logo/LFDT_ecusson_noir.png"
+						alt="logo"
+					/>
+				</NavLink>
+			</div>
+			<div className={styles.trait}></div>
+
+			<div className={styles.TitreNav}>
+				{/* <div className={styles.titre}> */}
+				<h1>
+					LES FILMS <br />
+					DES TURBULENTES
+				</h1>
+				<div className={styles.navbar}>
+					<button
+						className={styles.hamburger}
+						type="button"
+						onClick={handleClic}
+						aria-expanded={navMobileIsVisible}
+						aria-label="Menu de navigation"
+					>
 						<img
-							className={styles.logo}
-							src="/img/logo/LFDT_ecusson_noir.png"
-							alt="logo"
+							className={styles.menuham}
+							src="/img/icons/menu_hamburger_2_px.png"
+							alt="button"
 						/>
-					</NavLink>
-				</div>
-				<div className={styles.trait}></div>
+					</button>
 
-				<div className={styles.TitreNav}>
-					{/* <div className={styles.titre}> */}
-					<h1>
-						LES FILMS <br />
-						DES TURBULENTES
-					</h1>
-					<div className={styles.navbar}>
-						<button
-							className={styles.hamburger}
-							type="button"
-							onClick={handleClic}
-							aria-expanded={navMobileIsVisible}
-							aria-label="Menu de navigation"
-						>
-							<img
-								className={styles.menuham}
-								src="/img/icons/menu_hamburger_2_px.png"
-								alt="button"
-							/>
-						</button>
-
-						<nav
-							className={`${styles.navlinks} ${
-								navMobileIsVisible ? styles.navbarMobileVisible : ""
-							}`}
-						>
-							<ul>
-								<li>
-									<NavLink to="/a_propos" onClick={closeMenu}>
-										A propos
-									</NavLink>
-								</li>
-								<li>
-									<NavLink to="/films" onClick={closeMenu}>
-										Films
-									</NavLink>
-								</li>
-								<li>
-									<NavLink to="/contact" onClick={closeMenu}>
-										Contact
-									</NavLink>
-								</li>
-							</ul>
-						</nav>
-					</div>
+					<nav
+						className={`${styles.navlinks} ${
+							navMobileIsVisible ? styles.navbarMobileVisible : ""
+						}`}
+					>
+						<ul>
+							<li>
+								<NavLink
+									to="/a_propos"
+									onClick={closeMenu}
+									className={({ isActive }) =>
+										isActive ? styles.activeLink : ""
+									}
+								>
+									A propos
+								</NavLink>
+							</li>
+							<li>
+								<NavLink
+									to="/films"
+									onClick={closeMenu}
+									className={({ isActive }) =>
+										isActive ? styles.activeLink : ""
+									}
+								>
+									Films
+								</NavLink>
+							</li>
+							<li>
+								<NavLink
+									to="/contact"
+									onClick={closeMenu}
+									className={({ isActive }) =>
+										isActive ? styles.activeLink : ""
+									}
+								>
+									Contact
+								</NavLink>
+							</li>
+						</ul>
+					</nav>
 				</div>
-			</header>
-			{/* <div className={styles.infoTexte}>
-				<p>
-					Créée à l’été 2023 à Guainville en région Centre Val de Loire, Les
-					Films des Turbulentes défend un cinéma de l’exploration qui bouleverse
-					autant qu’il bouscule. Nous accompagnons des cinéastes de la nouvelle
-					garde, soucieux du monde qui les entoure et dont les récits résonnent
-					avec leur vécu intime.
-				</p>
-			</div> */}
-		</>
+			</div>
+		</header>
 	);
 };
 

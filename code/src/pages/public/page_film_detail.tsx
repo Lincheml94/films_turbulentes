@@ -3,6 +3,7 @@ import type { Film } from "../../../models/film";
 import Header from "../../components/header";
 import FilmContentDetailsClient from "../../components/public/films/film_content_details_client";
 import type { FilmsDetailsParams } from "../../models/params/films_details_params";
+import Seo from "../../models/props/seo/seo";
 import FilmApiService from "../../service/film_api_service";
 
 const PageFilmsDetails = ({ params }: FilmsDetailsParams) => {
@@ -14,6 +15,11 @@ const PageFilmsDetails = ({ params }: FilmsDetailsParams) => {
 	}
 	return (
 		<div>
+			<Seo
+				title={result.data?.title as string}
+				description={result.data?.title as string}
+				url={`/films/${id}`}
+			/>
 			<Header variant="film_detail" />
 			<FilmContentDetailsClient data={result.data as Film} />
 		</div>

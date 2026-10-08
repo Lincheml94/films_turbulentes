@@ -32,7 +32,11 @@
 			li {
 				font-size: 22px;
 			}
+			.activeLink {
+				font-size: 25px;
+			}
 		}
+
 		.hamburger {
 			display: none;
 		}
