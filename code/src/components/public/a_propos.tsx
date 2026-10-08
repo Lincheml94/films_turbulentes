@@ -6,12 +6,17 @@ const APropos = () => {
 	// BOITES DEROULANTES
 	const [nonoIsVisible, setNonoIsVisible] = useState<boolean>(false);
 	const [charlotteIsVisible, setCharlotteIsVisible] = useState<boolean>(false);
+	const [mentionsLegalesIsVisible, setMentionsLegalesIsVisible] =
+		useState<boolean>(false);
 
 	const ShowNono = () => {
 		setNonoIsVisible(!nonoIsVisible);
 	};
 	const ShowCharlotte = () => {
 		setCharlotteIsVisible(!charlotteIsVisible);
+	};
+	const ShowMentionsLegales = () => {
+		setMentionsLegalesIsVisible(!mentionsLegalesIsVisible);
 	};
 
 	return (
@@ -92,6 +97,38 @@ const APropos = () => {
 			{/* PHOTO DES PROD */}
 			<div className={styles.imgLeft}>
 				<img src="/public/img/photo_bio.jpeg" alt="" />
+			</div>
+			{/* MENTIONS LEGALES */}
+			<div className={styles.boxMentionsLegales}>
+				<div className={styles.titreArrow}>
+					<p className={styles.boxTitle}>Mentions légales</p>
+					<button type="button" onClick={ShowMentionsLegales}>
+						<img
+							src="/img/icons/arrow_up.svg"
+							alt="arrow"
+							className={mentionsLegalesIsVisible ? styles.arrowUp : ""}
+						/>
+					</button>
+				</div>
+				<div
+					className={`${styles.boxMentionsLegalesIsClose} ${mentionsLegalesIsVisible ? styles.boxMentionsLegalesIsVisible : ""}`}
+				>
+					<p>
+						© Tous les contenus textuels et visuels sont la propriété de Les
+						Films des Turbulentes
+					</p>
+					<p>
+						Forme juridique : [Association loi 1901 / SARL / Auto-entrepreneur]
+					</p>
+					<p>RNA : [numéro] · Siège social : [adresse complète]</p>
+					<p>SIRET : [numéro à 14 chiffres]</p>
+					<p>Direction de la publication : [Nom et Prénom]</p>
+					<p>Contact : [adresse email]</p>
+					<p>Hébergement : [nom + adresse de l'hébergeur]</p>
+					<p>
+						Conception et développement : [ton nom ou celui de ta structure]
+					</p>
+				</div>
 			</div>
 		</div>
 	);

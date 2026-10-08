@@ -115,21 +115,6 @@ const CarrouselAccueilClient = ({
 					alt={`Affiche du film ${film.title}`}
 				/>
 			</div>
-
-			{/* <!-- TEST VISUEL (à supprimer une fois que ça marche) --> */}
-			{/* <div
-				style={{
-					position: "absolute",
-					top: 0,
-					right: 0,
-					background: "yellow",
-					color: "black",
-					padding: "5px",
-					fontSize: "12px",
-				}}
-			>
-				Slide: {currentIndex + 1} / {totalSlides}
-			</div> */}
 		</div>
 	);
 };

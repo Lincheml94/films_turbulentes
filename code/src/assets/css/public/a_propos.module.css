@@ -3,6 +3,7 @@
 	width: 100%;
 	height: 100vh;
 	overflow: hidden;
+	padding-bottom: 3em;
 	.contentRight {
 		width: calc(100vw - 39.5vw);
 		padding-top: 12em;
@@ -20,7 +21,7 @@
 		display: flex;
 		gap: 4em;
 		padding-left: 3em;
-		padding-top: 5em;
+		padding-top: 3em;
 		.bioBox {
 			width: 40%;
 			.boxNonoIsClose,
@@ -30,8 +31,8 @@
 			.boxCharlotteIsVisible,
 			.boxNonoIsVisible {
 				display: block;
-				padding-top: 2rem;
-				padding-bottom: 2rem;
+				padding-top: 2em;
+				padding-bottom: 2em;
 				.bio {
 					width: 100%;
 				}
@@ -49,6 +50,43 @@
 			}
 		}
 	}
+	/* MENTIONS LEGALES */
+	.boxMentionsLegales {
+		background: #ffffff;
+		padding-left: 3em;
+		width: 58%;
+		border-top: solid 1px black;
+		position: fixed;
+		bottom: 0;
+
+		.titreArrow {
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+			padding-top: 0.5em;
+			padding-bottom: 0.5em;
+			p {
+				font-size: 12px;
+				font-family: UncutSans-regular;
+			}
+		}
+		.arrowUp {
+			transform: rotate(180deg);
+		}
+		.boxMentionsLegalesIsClose {
+			display: none;
+		}
+		.boxMentionsLegalesIsVisible {
+			display: block;
+			padding-top: 2rem;
+			padding-bottom: 2rem;
+			p {
+				font-size: 12px;
+				font-family: UncutSans-regular;
+			}
+		}
+	}
+
 	.imgLeft {
 		height: 100vh;
 		width: 39.5vw;
@@ -91,6 +129,39 @@
 			height: 80vh;
 			width: 90%;
 			padding-top: 5em;
+		}
+		.boxMentionsLegales {
+			width: 100%;
+			border-top: solid 1px black;
+			position: fixed;
+			bottom: 0;
+
+			.titreArrow {
+				display: flex;
+				justify-content: space-between;
+				width: 90%;
+				padding-top: 0.8em;
+				p {
+					font-size: 12px;
+					font-family: UncutSans-regular;
+				}
+			}
+			.arrowUp {
+				transform: rotate(180deg);
+			}
+			.boxMentionsLegalesIsClose {
+				display: none;
+			}
+			.boxMentionsLegalesIsVisible {
+				display: block;
+				padding-top: 2rem;
+				padding-bottom: 2rem;
+
+				p {
+					font-size: 12px;
+					font-family: UncutSans-regular;
+				}
+			}
 		}
 	}
 }
