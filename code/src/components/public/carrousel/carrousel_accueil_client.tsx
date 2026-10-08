@@ -1,6 +1,7 @@
 "use client"; // <--- CRUCIAL : Doit être la toute première ligne
 
 import { useState } from "react";
+import { NavLink } from "react-router";
 import type { Film } from "../../../../models/film";
 import styles from "../../../assets/css/public/carrousel.module.css";
 
@@ -58,13 +59,18 @@ const CarrouselAccueilClient = ({
 	return (
 		<div className={styles.mainCarrousel}>
 			<div className={styles.legend}>
-				<div className={styles.texte}>
-					<p className={styles.legendTitle}>{film.title || "Titre inconnu"}</p>
-					<p className={styles.legendText}>{releaseYear}</p>
-					<p className={styles.legendText}>
-						Un film de {film.director_1 || "Inconnu"}
-					</p>
-				</div>
+				<NavLink to={`/films/${film.id}`}>
+					{/* <NavLink to="/films" onClick={(e) => e.stopPropagation()}> */}
+					<div className={styles.texte}>
+						<p className={styles.legendTitle}>
+							{film.title || "Titre inconnu"}
+						</p>
+						<p className={styles.legendText}>{releaseYear}</p>
+						<p className={styles.legendText}>
+							Un film de {film.director_1 || "Inconnu"}
+						</p>
+					</div>
+				</NavLink>
 				<div className={styles.fleches}>
 					{/* Bouton SUIVANT */}
 					<button

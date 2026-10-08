@@ -191,5 +191,10 @@
 				height: 70%;
 			}
 		}
+		.boxMentionsLegales {
+			.boxMentionsLegalesIsVisible {
+				width: 80%;
+			}
+		}
 	}
 }

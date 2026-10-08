@@ -134,26 +134,35 @@
 		.leftElements {
 			flex-direction: column-reverse;
 			align-items: center;
-			top: 13em;
-			gap: 2em;
+			top: 15em;
+			gap: 3em;
 			.posterLeft {
-				height: 80vw;
+				height: unset;
 				width: 40vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				img {
+					width: 35vh;
+					height: auto;
+				}
 			}
 			.colonneDetailDescription {
 				padding-top: unset;
-				width: 40vw;
+				padding-left: unset;
+				width: 43vw;
 			}
 		}
 
 		.colonnesInfoFilms {
-			padding-left: 1.2em;
+			padding-left: 2em;
+			padding-top: 15em;
 			.colonneDetail {
-				width: 40vw;
+				width: 50vw;
 			}
 		}
 		.titreArrow {
-			width: 38vw;
+			width: 42vw;
 		}
 	}
 }
@@ -192,10 +201,13 @@
 			width: 32em;
 
 			.posterLeft {
-				height: 40em !important;
-				width: 32em !important;
-				padding-top: 2em;
+				height: unset;
+				width: unset;
 				padding-bottom: 2em;
+				img {
+					width: 100vw;
+					height: auto;
+				}
 			}
 			.colonneDetailDescription {
 				padding-top: unset;
@@ -209,7 +221,6 @@
 		.colonneDetail > div:not(.directorYearDuration) {
 			order: 3;
 			width: 32em;
-			/* margin: 0 auto; */
 		}
 
 		.titreArrow {
@@ -244,10 +255,6 @@
 		}
 		.leftElements {
 			width: 90%;
-			/* .posterLeft {
-				width: 100vw;
-				height: 20vh;
-			} */
 		}
 	}
 }

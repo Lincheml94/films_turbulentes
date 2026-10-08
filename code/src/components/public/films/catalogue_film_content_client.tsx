@@ -61,6 +61,7 @@ const CatalogueFilmContentClient = ({
 			{/* </div> */}
 
 			{/* ZONE GRILLE */}
+
 			<div className={styles.posterPageFilms}>
 				{filteredFilms.length > 0 ? (
 					filteredFilms.map((film) => (

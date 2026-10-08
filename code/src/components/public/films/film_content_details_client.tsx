@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { Link } from "react-router";
 import styles from "../../../assets/css/public/film_detail.module.css";
 import type { FilmContentDetailsProps } from "../../../models/props/films/films_content_details_props";
 
