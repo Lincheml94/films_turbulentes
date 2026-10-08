@@ -2,6 +2,7 @@ import { use } from "react";
 import type { Category } from "../../../models/category";
 import type { Film } from "../../../models/film";
 import AdminFilmFormContent from "../../components/admin/admin_film_form_content";
+import HeaderAdmin from "../../components/admin/header_admin";
 import type { AdminFilmParams } from "../../models/params/admin_film_params";
 import CategoryApiService from "../../service/category_api_service";
 import FilmApiService from "../../service/film_api_service";
@@ -28,11 +29,14 @@ const FilmForm = ({ params }: AdminFilmParams) => {
 		.data as Category[];
 
 	return (
-		<AdminFilmFormContent
-			dataToUpdate={dataToUpdate}
-			categories={categories}
-			validator={new AdminFilmFormValidator().validate}
-		/>
+		<>
+			<HeaderAdmin variant="film_form" />
+			<AdminFilmFormContent
+				dataToUpdate={dataToUpdate}
+				categories={categories}
+				validator={new AdminFilmFormValidator().validate}
+			/>
+		</>
 	);
 };
 

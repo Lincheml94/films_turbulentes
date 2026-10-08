@@ -9,7 +9,17 @@
 	position: fixed;
 	top: 0;
 	background: #ffffff;
-	z-index: 1;
+	z-index: 10;
+	p,
+	h1 {
+		font-family: MatterMonoTRIAL-bold;
+	}
+	.logOutButton {
+		p {
+			font-family: UncutSans-semibold;
+		}
+	}
+
 	.adminLogoTitle {
 		display: flex;
 		align-items: center;
@@ -19,6 +29,9 @@
 		}
 	}
 }
+.adminHeaderForm .logOutButton {
+	display: none !important;
+}
 
 /* PAGE ACCUEIL LIVRES : AJOUTER / MODIFIER / SUPPRIMER*/
 /* h2 {
@@ -27,7 +40,7 @@
 
 .filmCrudAccueil {
 	padding: 2em;
-	padding-top: 8em;
+	padding-top: 15em;
 	display: flex;
 	flex-direction: column;
 	width: 10em;
@@ -35,15 +48,23 @@
 	button:hover {
 		cursor: pointer;
 	}
-
-	.button_add {
-		width: 140px;
-		height: 39px;
-		background-color: #f3f3f3;
-		margin-bottom: 50px;
-	}
-	.button_add:hover {
-		background-color: #e5e5e5;
+	.buttonBox {
+		width: 100%;
+		background: #ffffff;
+		position: fixed;
+		top: 82px;
+		right: 0;
+		.button_add {
+			margin-top: 3em;
+			width: 140px;
+			height: 39px;
+			background-color: #f3f3f3;
+			margin-bottom: 20px;
+			margin-left: 2.5em;
+		}
+		.button_add:hover {
+			background-color: #e5e5e5;
+		}
 	}
 
 	.filmCrud {
@@ -52,6 +73,9 @@
 		margin-bottom: 10px;
 		width: 600px;
 		justify-content: space-between;
+		p {
+			font-family: UncutSans-semibold;
+		}
 		.filmImgTitle {
 			display: flex;
 			gap: 2em;
@@ -79,9 +103,9 @@
 
 /* FORMULAIRE LIVRE */
 .formulaire_crud {
-	padding: 1.25rem;
+	padding-top: 3em;
+	padding-left: 1.5em;
 	max-width: 20rem;
-	/* margin: 0 auto; */
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
@@ -90,6 +114,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
+		font-family: UncutSans-semibold;
 	}
 
 	/* label,
@@ -228,8 +253,21 @@
 
 @media only screen and (max-width: 930px) {
 	.filmCrudAccueil {
-		padding-top: 2em;
+		padding-top: 13em;
 		padding-bottom: 5em;
+		.buttonBox {
+			top: 60px;
+			display: flex;
+			justify-content: center;
+			.button_add {
+				margin-left: unset;
+			}
+
+			.button_add:hover {
+				background-color: #e5e5e5;
+			}
+		}
+
 		.filmCrud {
 			width: 500px;
 			.button_crud {
@@ -239,10 +277,21 @@
 	}
 	.adminHeader {
 		display: contents;
+
+		.adminLogoTitle {
+			position: fixed;
+			background: #ffffff;
+			/* width: 50%; */
+		}
 		.logOutButton {
 			position: fixed;
-			bottom: 0em;
-			right: 1em;
+			border-top: black solid 0.03em;
+			background: #ffffff;
+			display: flex;
+			justify-content: center;
+			right: 0;
+			left: 0;
+			bottom: 0;
 			padding: 1em;
 		}
 	}
@@ -251,14 +300,29 @@
 @media only screen and (max-width: 580px) {
 	.filmCrudAccueil {
 		width: 100%;
+		padding-left: unset;
+		padding-right: unset;
+		align-items: center;
+		.button_add {
+			padding: unset;
+		}
 		.filmCrud {
 			flex-direction: column;
 			width: auto;
 			padding: 0.8rem;
 			align-items: center;
-			gap: 3em;
+			gap: 2em;
 			.filmImgTitle {
 				flex-direction: column;
+				align-items: center;
+				.imgBox {
+					width: 140px;
+					height: 170px;
+					.img_form {
+						width: 100%;
+						object-fit: cover;
+					}
+				}
 			}
 			.button_crud {
 				position: unset;
@@ -268,11 +332,16 @@
 	.adminHeader {
 		.adminLogoTitle {
 			gap: 1em;
+			width: 90%;
+			justify-content: center;
 			.logoInAdmin {
 				width: 60px;
 			}
 		}
 		.logOutButton {
+			border-left: unset;
+			border-right: unset;
+			border-bottom: unset;
 			border-top: black solid 0.03em;
 			background: #ffffff;
 			display: flex;
@@ -280,5 +349,8 @@
 			right: 0;
 			left: 0;
 		}
+	}
+	.formulaire_crud {
+		padding-left: 1em;
 	}
 }

@@ -6,7 +6,7 @@
 
 	p {
 		font-size: 14px;
-		font-family: UncutSans-regular;
+		font-family: UncutSans-semibold;
 		line-height: 17px;
 	}
 
@@ -35,7 +35,7 @@
 			p {
 				font-size: 18px;
 				line-height: 24px;
-				font-family: UncutSans-semibold;
+				font-family: UncutSans-regular;
 			}
 		}
 	}

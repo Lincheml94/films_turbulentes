@@ -15,7 +15,8 @@
 		button {
 			background-color: unset;
 			p {
-				font-size: 18px;
+				font-size: 16px;
+				font-family: UncutSans-semibold;
 			}
 			.tousFilms {
 				font-size: 14px;
@@ -24,7 +25,7 @@
 		}
 		.active {
 			p {
-				font-size: 20px;
+				font-size: 18px;
 			}
 		}
 	}
@@ -49,7 +50,8 @@
 				overflow: hidden;
 				margin: 2rem;
 				p {
-					font-family: UncutSans-regular !important;
+					font-family: UncutSans-semibold;
+					font-size: 14px;
 				}
 
 				img {

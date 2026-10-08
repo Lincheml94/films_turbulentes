@@ -1,16 +1,16 @@
 @font-face {
 	font-family: UncutSans-regular;
-	src: url(/src/assets/font/UncutSans-Regular.otf);
+	src: url(/src/assets/font/UncutSans-Regular.woff);
 }
 
 @font-face {
 	font-family: UncutSans-semibold;
-	src: url(/src/assets/font/UncutSans-Semibold.otf);
+	src: url(/src/assets/font/UncutSans-Semibold.woff);
 }
 
 @font-face {
 	font-family: UncutSans-bold;
-	src: url(/src/assets/font/UncutSans-Book.otf);
+	src: url(/src/assets/font/UncutSans-Bold.woff);
 }
 
 @font-face {
@@ -19,13 +19,13 @@
 }
 
 p {
-	font-family: UncutSans-bold;
+	font-family: UncutSans-regular;
 }
 
-h1,
+/* h1,
 li {
 	font-family: MatterMonoTRIAL-bold;
-}
+} */
 
 li {
 	list-style-type: none;

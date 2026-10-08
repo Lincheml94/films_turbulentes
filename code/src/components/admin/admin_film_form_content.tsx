@@ -212,7 +212,7 @@ const AdminFilmFormContent = ({
 			<div className={styles["image-slot"]}>
 				<p>
 					<label htmlFor={id}>
-						{label} {isRequired && <span className={styles.required}>*</span>}
+						{label} {isRequired && <span className={styles.required}></span>}
 					</label>
 				</p>
 
@@ -280,7 +280,7 @@ const AdminFilmFormContent = ({
 				>
 					{/* TITRE */}
 					<p>
-						<label htmlFor={titleId}>Titre</label>
+						<label htmlFor={titleId}>Titre (obligatoire)</label>
 						<input
 							type="text"
 							id={titleId}
@@ -294,7 +294,7 @@ const AdminFilmFormContent = ({
 					{/* POSTER */}
 					{renderImageSlot(
 						"poster",
-						"Affiche (Poster)",
+						"Affiche (obligatoire)",
 						posterId,
 						dataToUpdate?.poster || ("" as any),
 						!dataToUpdate ? { required: "L'affiche est obligatoire" } : {},
@@ -303,7 +303,7 @@ const AdminFilmFormContent = ({
 
 					{/* CATEGORIE */}
 					<p>
-						<label htmlFor={categoryId}>Catégorie</label>
+						<label htmlFor={categoryId}>Catégorie (obligatoire)</label>
 						<select
 							id={categoryId}
 							{...register("category_id", {
@@ -322,10 +322,19 @@ const AdminFilmFormContent = ({
 					<p className={styles.msg_erreur} role="alert">
 						{errors.category_id?.message ?? serverErrors?.category_id}
 					</p>
+					<p>
+						<label htmlFor={typeId}>Type du film (obligatoire)</label>
+						<input
+							type="text"
+							id={typeId}
+							{...register("type", { required: "Le type est obligatoire" })}
+						/>
+						<br />
+					</p>
 
 					{/* DESCRIPTION */}
 					<p>
-						<label htmlFor={descriptionId}>Synopsis / Description</label>
+						<label htmlFor={descriptionId}>Synopsis (obligatoire)</label>
 						<textarea
 							id={descriptionId}
 							{...register("description", {
@@ -339,7 +348,8 @@ const AdminFilmFormContent = ({
 
 					{/* REALISATEUR 1 (Toujours visible) */}
 					<fieldset>
-						<legend>Réalisateur Principal</legend>
+						<p>Réalisateur.ice (obligatoire)</p>
+						<br />
 						<p>
 							<label htmlFor={director1Id}>Nom</label>
 							<input
@@ -348,6 +358,7 @@ const AdminFilmFormContent = ({
 								{...register("director_1", { required: "Obligatoire" })}
 							/>
 						</p>
+						<br />
 						<p className={styles.msg_erreur} role="alert">
 							{errors.director_1?.message ?? serverErrors?.director_1}
 						</p>
@@ -357,7 +368,7 @@ const AdminFilmFormContent = ({
 						</p>
 						{renderImageSlot(
 							"director_1_image",
-							"Photo Réalisateur 1",
+							"Photo",
 							director1imageId,
 							dataToUpdate?.director_1_image || ("" as any),
 							{},
@@ -367,7 +378,7 @@ const AdminFilmFormContent = ({
 					{/* REALISATEUR 2 (Déroulant) */}
 					<div className={styles["accordion-container"]}>
 						<div className={styles["accordion-header"]} onClick={toggleDir2}>
-							<h3>Ajouter un 2e réalisateur</h3>
+							<p>Ajouter un 2e réalisateur</p>
 							<button type="button" className={styles["accordion-btn"]}>
 								<img
 									src="/img/icons/arrow_down.svg"
@@ -388,6 +399,7 @@ const AdminFilmFormContent = ({
 										{...register("director_2")}
 									/>
 								</p>
+								<br />
 								<p>
 									<label htmlFor={director2bioId}>Biographie</label>
 									<textarea
@@ -395,9 +407,10 @@ const AdminFilmFormContent = ({
 										{...register("director_2_bio")}
 									/>
 								</p>
+								<br />
 								{renderImageSlot(
 									"director_2_image",
-									"Photo Réalisateur 2",
+									"Photo",
 									director2imageId,
 									dataToUpdate?.director_2_image || ("" as any),
 									{},
@@ -409,7 +422,7 @@ const AdminFilmFormContent = ({
 					{/* REALISATEUR 3 (Déroulant) */}
 					<div className={styles["accordion-container"]}>
 						<div className={styles["accordion-header"]} onClick={toggleDir3}>
-							<h3>Ajouter un 3e réalisateur</h3>
+							<p>Ajouter un 3e réalisateur</p>
 							<button type="button" className={styles["accordion-btn"]}>
 								<img
 									src="/img/icons/arrow_down.svg"
@@ -430,6 +443,7 @@ const AdminFilmFormContent = ({
 										{...register("director_3")}
 									/>
 								</p>
+								<br />
 								<p>
 									<label htmlFor={director3bioId}>Biographie</label>
 									<textarea
@@ -450,15 +464,6 @@ const AdminFilmFormContent = ({
 
 					{/* AUTRES CHAMPS TECHNIQUES */}
 					<fieldset>
-						<legend>Détails du film</legend>
-						<p>
-							<label htmlFor={typeId}>Type (Fiction, Docu, etc.)</label>
-							<input
-								type="text"
-								id={typeId}
-								{...register("type", { required: "Le type est obligatoire" })}
-							/>
-						</p>
 						<p className={styles.msg_erreur} role="alert">
 							{errors.type?.message ?? serverErrors?.type}
 						</p>
@@ -470,7 +475,6 @@ const AdminFilmFormContent = ({
 								id={releasedateId}
 								min={1888}
 								max={2100}
-								placeholder="2024"
 								{...register("release_date", {
 									// un champ vide devient undefined
 									setValueAs: (v) =>
@@ -478,6 +482,7 @@ const AdminFilmFormContent = ({
 								})}
 							/>
 						</p>
+						<br />
 						<p className={styles.msg_erreur} role="alert">
 							{errors.release_date?.message ?? serverErrors?.release_date}
 						</p>
@@ -501,22 +506,16 @@ const AdminFilmFormContent = ({
 
 					{/* FICHE TECHNIQUE */}
 					<p>
-						<label htmlFor={fichetechniqueId}>Fiche technique</label>
-						<textarea
-							id={fichetechniqueId}
-							{...register("fiche_technique")}
-							placeholder="Liste de l'équipe technique..."
-						/>
+						<label htmlFor={fichetechniqueId}>
+							Equipe artistique et technique
+						</label>
+						<textarea id={fichetechniqueId} {...register("fiche_technique")} />
 					</p>
 
 					{/* PRIX ET FESTIVALS */}
 					<p>
 						<label htmlFor={prixfestivalsId}>Prix et Festivals</label>
-						<textarea
-							id={prixfestivalsId}
-							{...register("prix_festivals")}
-							placeholder="Sélections, prix obtenus..."
-						/>
+						<textarea id={prixfestivalsId} {...register("prix_festivals")} />
 					</p>
 
 					{/* PARTENAIRES ET SOUTIENS */}
@@ -527,23 +526,19 @@ const AdminFilmFormContent = ({
 						<textarea
 							id={partenairessoutiensId}
 							{...register("partenaires_soutiens")}
-							placeholder="Remerciements, partenaires financiers..."
 						/>
 					</p>
 
 					{/* PRESSE */}
 					<p>
 						<label htmlFor={presseId}>Revue de presse</label>
-						<textarea
-							id={presseId}
-							{...register("presse")}
-							placeholder="Citations de la presse..."
-						/>
+						<textarea id={presseId} {...register("presse")} />
 					</p>
 
 					{/* IMAGES GALERIE */}
 					<fieldset>
-						<legend>Galerie d'images (5 max)</legend>
+						<p>Galerie d'images</p>
+						<br />
 						{renderImageSlot(
 							"image_1",
 							"Image 1",

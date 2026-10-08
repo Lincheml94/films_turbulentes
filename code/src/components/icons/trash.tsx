@@ -2,7 +2,7 @@
 import { RiDeleteBinLine } from "react-icons/ri";
 
 const BinIcon = () => {
-	return <RiDeleteBinLine />;
+	return <RiDeleteBinLine size="1rem" />;
 };
 
 export default BinIcon;

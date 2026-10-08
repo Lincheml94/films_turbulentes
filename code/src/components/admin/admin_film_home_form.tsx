@@ -1,16 +1,17 @@
 import { use } from "react";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 import styles from "../../assets/css/admin/formulaire_crud_film.module.css";
 import FilmApiService from "../../service/film_api_service";
 import EditIcon from "../icons/edit";
-import BinIcon from "../icons/trash";
+import AdminFilmDeleteLink from "./admin_film_delete_link";
+import UnlogButton from "./unlog_button";
 
 const AdminFilmHomeFormContent = () => {
 	const results = use(new FilmApiService().selectAll()).data;
 
 	return (
 		<div className={styles.filmCrudAccueil}>
-			<div>
+			<div className={styles.buttonBox}>
 				<Link to={"/admin/film_form"}>
 					<button type="submit" className={styles.button_add}>
 						Ajouter un film
@@ -38,12 +39,7 @@ const AdminFilmHomeFormContent = () => {
 									<EditIcon />
 								</button>
 							</Link>
-
-							<Link to={`/admin/film_delete/${item.id}`}>
-								<button type="submit">
-									<BinIcon />
-								</button>
-							</Link>
+							<AdminFilmDeleteLink id={item.id} title={item.title} />
 						</div>
 					</div>
 				);

@@ -4,6 +4,9 @@
 	height: 100vh;
 	overflow: hidden;
 	padding-bottom: 3em;
+	p {
+		font-family: UncutSans-semibold;
+	}
 	.contentRight {
 		width: calc(100vw - 39.5vw);
 		padding-top: 12em;
@@ -41,7 +44,7 @@
 				display: flex;
 				justify-content: space-between;
 				.boxTitle {
-					font-family: UncutSans-bold;
+					font-family: UncutSans-semibold;
 				}
 			}
 			/* flèche */

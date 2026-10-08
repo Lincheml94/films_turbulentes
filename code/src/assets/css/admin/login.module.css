@@ -5,6 +5,9 @@
 	flex-direction: column;
 	justify-content: top;
 	align-items: center;
+	p {
+		font-family: UncutSans-bold;
+	}
 	.logoInLogin {
 		width: 150px;
 		padding-bottom: 3em;
