@@ -27,9 +27,11 @@
 		.legendTitle {
 			font-size: 18px;
 			padding-bottom: 1.2rem;
+			font-family: UncutSans-semibold;
 		}
 		.legendText {
 			font-size: 13px;
+			font-family: UncutSans-semibold;
 		}
 		.fleches {
 			display: flex;
