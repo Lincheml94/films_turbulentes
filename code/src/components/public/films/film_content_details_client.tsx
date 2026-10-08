@@ -10,6 +10,7 @@ const FilmContentDetailsClient = ({ data }: FilmContentDetailsProps) => {
 	const [festivalsIsVisible, setFestivalsIsVisible] = useState<boolean>(false);
 	const [equipeIsVisible, setEquipeIsVisible] = useState<boolean>(false);
 	const [imagesIsVisible, setImagesIsVisible] = useState<boolean>(false);
+	const [presseIsVisible, setPresseIsVisible] = useState<boolean>(false);
 
 	const ShowPartenaires = () => {
 		setPartIsVisible(!partIsVisible);
@@ -25,6 +26,9 @@ const FilmContentDetailsClient = ({ data }: FilmContentDetailsProps) => {
 	};
 	const ShowImages = () => {
 		setImagesIsVisible(!imagesIsVisible);
+	};
+	const ShowPresse = () => {
+		setPresseIsVisible(!presseIsVisible);
 	};
 
 	return (
@@ -146,6 +150,26 @@ const FilmContentDetailsClient = ({ data }: FilmContentDetailsProps) => {
 								className={`${styles.boxEquipeIsClose} ${equipeIsVisible ? styles.boxEquipeIsVisible : ""}`}
 							>
 								<p>{data.fiche_technique}</p>
+							</div>
+						</div>
+					)}
+					{/* Presse */}
+					{data.presse && (
+						<div>
+							<div className={styles.titreArrow}>
+								<p className={styles.boxTitle}>Presse</p>
+								<button type="button" onClick={ShowPresse}>
+									<img
+										src="/img/icons/arrow_down.svg"
+										alt="arrow"
+										className={presseIsVisible ? styles.arrowUp : ""}
+									/>
+								</button>
+							</div>
+							<div
+								className={`${styles.boxPresseIsClose} ${presseIsVisible ? styles.boxPresseIsVisible : ""}`}
+							>
+								<p>{data.presse}</p>
 							</div>
 						</div>
 					)}

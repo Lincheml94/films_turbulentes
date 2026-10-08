@@ -90,7 +90,8 @@
 	.boxCineIsClose,
 	.boxFestIsClose,
 	.boxEquipeIsClose,
-	.boxImageIsClose {
+	.boxImageIsClose,
+	.boxPresseIsClose {
 		display: none;
 	}
 
@@ -98,7 +99,8 @@
 	.boxCineIsVisible,
 	.boxFestIsVisible,
 	.boxEquipeIsVisible,
-	.boxImageIsVisible {
+	.boxImageIsVisible,
+	.boxPresseIsVisible {
 		display: block;
 		padding-top: 2rem;
 		padding-bottom: 2rem;
