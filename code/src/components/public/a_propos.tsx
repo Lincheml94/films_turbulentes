@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { Link } from "react-router";
 import styles from "../../assets/css/public/a_propos.module.css";
 
 const APropos = () => {
@@ -24,18 +25,47 @@ const APropos = () => {
 			<div className={styles.contentRight}>
 				<div className={styles.textBio}>
 					<p>
-						Créée à l’été 2023 à Guainville en région Centre Val de Loire, Les
-						Films des Turbulentes défend un cinéma de l’exploration qui
-						bouleverse autant qu’il bouscule. Nous accompagnons des cinéastes de
-						la nouvelle garde, soucieux du monde qui les entoure et dont les
-						récits résonnent avec leur vécu intime. <br />
+						Créée à l’été 2023 par Noémie Colin et Charlotte Le Moine, Les Films
+						des Turbulentes défend un cinéma de l’exploration, qui bouleverse
+						autant qu’il bouscule. Nous accompagnons des cinéastes soucieux du
+						monde qui les entoure et dont les récits résonnent avec leur vécu
+						intime. Nous avons à cœur de les accompagner dans la durée, en
+						construisant des relations de travail fondées sur la confiance au
+						fil de leurs projets.
 						<br />
-						Noémie Colin-Manderscheid et Charlotte Le Moine se sont rencontrées
-						en 2016 pendant leurs études à la CinéFabrique (Lyon, France). Le
-						tandem complémentaire qu’elles constituent leur donne l’ambition de
-						produire des films sans limite de genre ou de forme. Elles ont la
-						conviction que c’est en déclinant des récits singuliers que chaque
-						œuvre saura trouver son public.
+						<br />
+						Formées à la CinéFabrique, nous avons appris à fabriquer des films
+						collectivement et avec inventivité. Le tandem complémentaire que
+						nous formons nourrit aujourd’hui notre ambition de produire des
+						films audacieux, qui circulent entre les genres et les formes. Nous
+						avons la conviction que c’est en déclinant des récits singuliers que
+						chaque œuvre saura trouver son public.
+						<br />
+						<br />
+						Nous partageons cette attention aux publics avec le{" "}
+						<Link to="https://collectifturbulentes.com/" target="blank">
+							Collectif Turbulentes !
+						</Link>
+						, avec lequel nous travaillons étroitement. Spécialisée dans la
+						transmission artistique pluridisciplinaire, l’association agit
+						auprès de personnes de tous âges et de tous horizons. Cette démarche
+						alimente notre manière de penser les films et d’accompagner nos
+						cinéastes au plus près de celles et ceux auxquels leurs œuvres
+						s’adressent.
+						<br />
+						<br />
+						Nous aimons envisager la production comme un travail collectif, où
+						les regards et les pratiques se croisent et s’enrichissent. C’est
+						pourquoi nous souhaitons également nous engager dans des
+						coproductions, pour accompagner des projets à plusieurs et faire
+						dialoguer nos sensibilités et nos savoir-faire.
+						<br />
+						<br />
+						Les Films des Turbulentes a bénéficié de la Bourse Post-études
+						Producteurs de CICLIC-Région Centre-Val de Loire en 2024. Elle est
+						accompagnée depuis dans le cadre de l’Aide Programme d’Entreprise de
+						la Région.
+						<br />
 					</p>
 				</div>
 
@@ -58,12 +88,18 @@ const APropos = () => {
 							className={`${styles.boxNonoIsClose} ${nonoIsVisible ? styles.boxNonoIsVisible : ""}`}
 						>
 							<p className={styles.bio}>
-								Noémie Colin-Manderscheid et Charlotte Le Moine se sont
-								rencontrées en 2016 pendant leurs études à la CinéFabrique
-								(Lyon, France). Le tandem complémentaire qu’elles constituent
-								leur donne l’ambition de produire des films sans limite de genre
-								ou de forme. Elles ont la conviction que c’est en déclinant des
-								récits singuliers que chaque œuvre saura trouver son public.
+								Après des études littéraires en spécialité cinéma à Lyon, Noémie
+								entre à la CinéFabrique. Elle travaille ensuite comme directrice
+								de production et régisseuse générale sur des films de fiction
+								chez Haïku Films et Unité. En 2020, elle co-fonde le Collectif
+								Turbulentes ! avec Marion Ricard et Jade Chenneveau. Passionnée
+								de cinéma d’animation, elle intègre en 2022 le parcours
+								production des Gobelins et se forme à la production d’animation.
+								<br />
+								<br />
+								Noémie produit des films d’animation en techniques
+								traditionnelles et mixtes, avec un goût prononcé pour le geste
+								artisanal.
 							</p>
 						</div>
 					</div>
@@ -83,12 +119,22 @@ const APropos = () => {
 							className={`${styles.boxCharlotteIsClose} ${charlotteIsVisible ? styles.boxCharlotteIsVisible : ""}`}
 						>
 							<p className={styles.bio}>
-								Noémie Colin-Manderscheid et Charlotte Le Moine se sont
-								rencontrées en 2016 pendant leurs études à la CinéFabrique
-								(Lyon, France). Le tandem complémentaire qu’elles constituent
-								leur donne l’ambition de produire des films sans limite de genre
-								ou de forme. Elles ont la conviction que c’est en déclinant des
-								récits singuliers que chaque œuvre saura trouver son public.
+								Charlotte découvre le cinéma aux Rencontres Cinématographiques
+								d’Hergla, en Tunisie, à l’aube des révolutions arabes. En 2015,
+								elle rejoint l’équipe du Festival des Cinémas d’Afrique d’Apt.
+								<br />
+								<br />
+								Après des études en gestion des affaires publiques à
+								l’Université d’Aix-Marseille (IMPGT), elle entre à la
+								CinéFabrique en 2016. Elle acquière ses premières expériences
+								chez Gloria Films, puis comme directrice de production auprès de
+								sociétés telles qu’Apaches Films et Yukunkun. De 2021 à 2023,
+								elle rejoint Kometa Films comme productrice junior et commence à
+								développer ses premiers courts-métrages. <br />
+								<br />
+								Charlotte s’intéresse autant à la fiction qu’au documentaire,
+								avec un goût particulier pour les écritures qui sortent des
+								sentiers battus.
 							</p>
 						</div>
 					</div>

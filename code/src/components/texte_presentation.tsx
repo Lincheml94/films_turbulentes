@@ -4,11 +4,12 @@ const TextPresentation = () => {
 	return (
 		<div className={styles.infoTexte}>
 			<p>
-				Créée à l’été 2023 à Guainville en région Centre Val de Loire, Les Films
-				des Turbulentes défend un cinéma de l’exploration qui bouleverse autant
-				qu’il bouscule. Nous accompagnons des cinéastes de la nouvelle garde,
-				soucieux du monde qui les entoure et dont les récits résonnent avec leur
-				vécu intime.
+				Nous accompagnons des cinéastes soucieux du monde qui les entourent,
+				dont les regards nous touchent, en veillant tout particulièrement à la
+				rencontre de leurs films avec les publics.
+				<br />
+				Nous sommes attachées aux projets qui prennent des chemins de traverse,
+				expérimentent avec les formes et déplacent les certitudes.
 			</p>
 		</div>
 	);
