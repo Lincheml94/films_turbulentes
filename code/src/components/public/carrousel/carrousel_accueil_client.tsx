@@ -66,9 +66,22 @@ const CarrouselAccueilClient = ({
 							{film.title || "Titre inconnu"}
 						</p>
 						<p className={styles.legendText}>{releaseYear}</p>
-						<p className={styles.legendText}>
+						<div className={styles.legendCineaste}>
+							<p className={styles.legendText}>
+								Un film de {film.director_1 || "Inconnu"}
+							</p>
+							{film.director_2 && <p className={styles.legendText}>,&nbsp;</p>}
+							{film.director_2 && (
+								<p className={styles.legendText}>{film.director_2}</p>
+							)}
+							{film.director_3 && <p className={styles.legendText}>,&nbsp;</p>}
+							{film.director_3 && (
+								<p className={styles.legendText}>{film.director_3}</p>
+							)}
+						</div>
+						{/* <p className={styles.legendText}>
 							Un film de {film.director_1 || "Inconnu"}
-						</p>
+						</p> */}
 					</div>
 				</NavLink>
 				<div className={styles.fleches}>

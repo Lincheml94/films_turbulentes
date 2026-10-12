@@ -37,14 +37,21 @@ const FilmContentDetailsClient = ({ data }: FilmContentDetailsProps) => {
 				<div className={styles.colonneDetail}>
 					<div className={styles.directorYearDuration}>
 						<p className={styles.filmTitle}>{data.title}</p>
-						<p>Un film de {data.director_1}</p>
+						<div className={styles.releaseInfo}>
+							<p>Un film de {data.director_1}</p>
+							{data.director_2 && <p>,&nbsp;</p>}
+							{data.director_2 && <p>{data.director_2}</p>}
+							{data.director_3 && <p>,&nbsp;</p>}
+							{data.director_3 && <p>{data.director_3}</p>}
+						</div>
+
 						<p>{data.type}</p>
 						<div className={styles.releaseInfo}>
 							{/* 1. Affiche la date si elle existe */}
 							{data.release_date && <p>{data.release_date}</p>}
 
 							{/* 2. Affiche le séparateur UNIQUEMENT si les deux champs existent */}
-							{data.release_date && data.duration && <p> / </p>}
+							{data.release_date && data.duration && <p>&nbsp;/&nbsp;</p>}
 
 							{/* 3. Affiche la durée si elle existe */}
 							{data.duration && <p>{data.duration}'</p>}
@@ -68,7 +75,9 @@ const FilmContentDetailsClient = ({ data }: FilmContentDetailsProps) => {
 							<div
 								className={`${styles.boxPartIsClose} ${partIsVisible ? styles.boxPartIsVisible : ""}`}
 							>
-								<p>{data.partenaires_soutiens}</p>
+								<p className={styles.textWhiteSpace}>
+									{data.partenaires_soutiens}
+								</p>
 							</div>
 						</div>
 					)}
@@ -127,7 +136,7 @@ const FilmContentDetailsClient = ({ data }: FilmContentDetailsProps) => {
 							<div
 								className={`${styles.boxFestIsClose} ${festivalsIsVisible ? styles.boxFestIsVisible : ""}`}
 							>
-								<p>{data.prix_festivals}</p>
+								<p className={styles.textWhiteSpace}>{data.prix_festivals}</p>
 							</div>
 						</div>
 					)}
@@ -149,7 +158,7 @@ const FilmContentDetailsClient = ({ data }: FilmContentDetailsProps) => {
 							<div
 								className={`${styles.boxEquipeIsClose} ${equipeIsVisible ? styles.boxEquipeIsVisible : ""}`}
 							>
-								<p>{data.fiche_technique}</p>
+								<p className={styles.textWhiteSpace}>{data.fiche_technique}</p>
 							</div>
 						</div>
 					)}
@@ -169,7 +178,7 @@ const FilmContentDetailsClient = ({ data }: FilmContentDetailsProps) => {
 							<div
 								className={`${styles.boxPresseIsClose} ${presseIsVisible ? styles.boxPresseIsVisible : ""}`}
 							>
-								<p>{data.presse}</p>
+								<p className={styles.textWhiteSpace}>{data.presse}</p>
 							</div>
 						</div>
 					)}

@@ -24,6 +24,10 @@
 		.texte p {
 			text-align: right;
 		}
+		.legendCineaste {
+			display: flex;
+			flex-wrap: wrap;
+		}
 		.legendTitle {
 			font-size: 18px;
 			padding-bottom: 1.2rem;
