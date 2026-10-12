@@ -87,7 +87,7 @@ const FilmContentDetailsClient = ({ data }: FilmContentDetailsProps) => {
 						<div
 							className={`${styles.boxCineIsClose} ${cineastesIsVisible ? styles.boxCineIsVisible : ""}`}
 						>
-							<div>
+							<div className={styles.boxCineDetails}>
 								<p>{data.director_1}</p>
 								<img
 									src={`/img/${data.director_1_image}`}
@@ -96,14 +96,14 @@ const FilmContentDetailsClient = ({ data }: FilmContentDetailsProps) => {
 								<p>{data.director_1_bio}</p>
 							</div>
 							{data.director_2 && (
-								<div>
+								<div className={styles.boxCineDetails}>
 									<p>{data.director_2}</p>
 									<img src={`/img/${data.director_2_image}`} alt={data.title} />
 									<p>{data.director_2_bio}</p>
 								</div>
 							)}
 							{data.director_3 && (
-								<div>
+								<div className={styles.boxCineDetails}>
 									<p>{data.director_3}</p>
 									<img src={`/img/${data.director_3_image}`} alt={data.title} />
 									<p>{data.director_3_bio}</p>

@@ -20,7 +20,7 @@ CREATE TABLE turbulentes_dev.film(
     director_3 VARCHAR(50) NULL,
     director_3_bio TEXT NULL,
     director_3_image VARCHAR(255) NULL,
-    type VARCHAR(100) NOT NULL,
+    type VARCHAR(150) NOT NULL,
     description TEXT NOT NULL,
     release_date INT NULL,
     duration INT NULL,

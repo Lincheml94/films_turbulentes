@@ -111,10 +111,15 @@
 	.boxCineIsVisible {
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		gap: 1em;
 		padding-top: 2rem;
 		img {
 			width: 100px;
+		}
+		.boxCineDetails {
+			display: flex;
+			flex-direction: column;
+			gap: 1.5em;
 		}
 	}
 	.boxImageIsVisible {
