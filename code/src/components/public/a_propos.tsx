@@ -106,7 +106,7 @@ const APropos = () => {
 					{/* CHARLOTTE */}
 					<div className={styles.bioBox}>
 						<div className={styles.titreArrow}>
-							<p className={styles.boxTitle}>Charlotte Lemoine</p>
+							<p className={styles.boxTitle}>Charlotte Le Moine</p>
 							<button type="button" onClick={ShowCharlotte}>
 								<img
 									src="/img/icons/arrow_down.svg"
