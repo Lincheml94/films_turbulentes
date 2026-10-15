@@ -70,7 +70,12 @@ const CatalogueFilmContentClient = ({
 								<div className={styles.posterBox}>
 									<img src={`/img/${film.poster}`} alt={film.title} />
 								</div>
-								<p className={styles.filmTitle}>{film.title}</p>
+								<div>
+									<p className={styles.filmTitle}>{film.title},</p>
+									<p className={styles.filmDirectorDate}>
+										{film.director_1}, {film.release_date}
+									</p>
+								</div>
 							</Link>
 						</div>
 					))
