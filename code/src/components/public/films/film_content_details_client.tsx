@@ -247,7 +247,9 @@ const FilmContentDetailsClient = ({ data }: FilmContentDetailsProps) => {
 			<div className={styles.leftElements}>
 				{/* <div className={styles.colonneDetail}> */}
 				<div className={styles.colonneDetailDescription}>
-					<p>{data.description}</p>
+					<div className={styles.descriptionScroll}>
+						<p>{data.description}</p>
+					</div>
 				</div>
 				{/* </div> */}
 				<div className={styles.posterLeft}>

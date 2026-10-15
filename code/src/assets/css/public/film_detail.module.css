@@ -30,18 +30,26 @@
 		.colonneDetailDescription {
 			width: 23vw;
 			padding-left: 1.5rem;
-			padding-top: 15.6rem;
 			z-index: 10;
 			position: relative;
 			height: 100%;
-			overflow: auto;
-			scrollbar-width: none;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			padding-bottom: 5rem;
+			padding-top: 15.6rem;
 			p {
 				font-size: 18px;
 				line-height: 24px;
 				font-family: UncutSans-regular;
 				white-space: pre-line;
+				padding-bottom: 3em;
 			}
+		}
+		.colonneDetailDescription .descriptionScroll {
+			overflow: auto;
+			max-height: calc(100vh - 15.6rem);
+			scrollbar-width: none;
 		}
 	}
 
@@ -148,25 +156,46 @@
 @media only screen and (max-width: 1050px) and (orientation: portrait) {
 	.mainPageFilmDetail {
 		.leftElements {
-			flex-direction: column-reverse;
-			align-items: center;
+			position: fixed;
 			top: 15em;
+			right: 0;
+			bottom: 0;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
 			gap: 3em;
+			overflow-y: auto;
+			padding-bottom: 2em;
+			scrollbar-width: none;
 			.posterLeft {
+				order: 1;
+				flex-shrink: 0;
 				height: unset;
 				width: 40vh;
 				display: flex;
 				align-items: center;
 				justify-content: center;
+
 				img {
 					width: 35vh;
 					height: auto;
 				}
 			}
 			.colonneDetailDescription {
+				order: 2;
+				flex-shrink: 0;
+				height: auto;
 				padding-top: unset;
+				padding-bottom: unset;
 				padding-left: unset;
+				justify-content: flex-start;
 				width: 43vw;
+				max-height: unset;
+				overflow: visible;
+			}
+			.colonneDetailDescription .descriptionScroll {
+				overflow: unset;
+				max-height: unset;
 			}
 		}
 
@@ -215,9 +244,15 @@
 			display: flex;
 			flex-direction: column;
 			position: unset;
+			top: auto;
+			right: auto;
+			bottom: auto;
+			height: auto;
+			overflow: visible;
 			width: 32em;
 
 			.posterLeft {
+				order: 2;
 				height: unset;
 				width: unset;
 				padding-bottom: 2em;
@@ -227,6 +262,7 @@
 				}
 			}
 			.colonneDetailDescription {
+				order: 1;
 				padding-top: unset;
 				width: 100%;
 				padding-left: unset;
@@ -272,6 +308,20 @@
 		}
 		.leftElements {
 			width: 90%;
+			.posterLeft {
+				padding-bottom: unset;
+			}
+			.colonneDetailDescription {
+				padding-bottom: unset;
+				p {
+					padding-bottom: unset;
+				}
+			}
+			.colonneDetailDescription .descriptionScroll {
+				overflow: unset;
+				max-height: unset;
+				scrollbar-width: none;
+			}
 		}
 	}
 }
