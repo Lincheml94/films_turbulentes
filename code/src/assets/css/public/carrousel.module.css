@@ -62,6 +62,7 @@
 		height: auto;
 		top: 18rem;
 		width: 100vw;
+		touch-action: pan-y;
 
 		.legend {
 			padding-right: unset;

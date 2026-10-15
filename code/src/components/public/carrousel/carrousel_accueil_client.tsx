@@ -1,6 +1,6 @@
-"use client"; // <--- CRUCIAL : Doit être la toute première ligne
+"use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { NavLink } from "react-router";
 import type { Film } from "../../../../models/film";
 import styles from "../../../assets/css/public/carrousel.module.css";
@@ -9,11 +9,16 @@ interface CarrouselAccueilClientProps {
 	initialFilms: Film[];
 }
 
+// Distance horizontale minimale (en px) pour considérer un geste comme un swipe
+const SWIPE_THRESHOLD = 50;
+
 const CarrouselAccueilClient = ({
 	initialFilms,
 }: CarrouselAccueilClientProps) => {
 	// Initialisation de l'état à 0
 	const [currentIndex, setCurrentIndex] = useState(0);
+	// Position du doigt au début du geste (swipe)
+	const touchStart = useRef<{ x: number; y: number } | null>(null);
 
 	// Sécurité : si pas de films
 	if (!initialFilms || initialFilms.length === 0) {
@@ -50,6 +55,37 @@ const CarrouselAccueilClient = ({
 		});
 	};
 
+	// Gestion du swipe (tactile)
+	const handleTouchStart = (e: React.TouchEvent) => {
+		const touch = e.touches[0];
+		if (!touch) return;
+		touchStart.current = { x: touch.clientX, y: touch.clientY };
+	};
+
+	const handleTouchEnd = (e: React.TouchEvent) => {
+		const start = touchStart.current;
+		const touch = e.changedTouches[0];
+		touchStart.current = null;
+		if (!start || !touch) return;
+
+		const deltaX = touch.clientX - start.x;
+		const deltaY = touch.clientY - start.y;
+
+		// On ignore les gestes trop courts ou plutôt verticaux (scroll de la page)
+		if (
+			Math.abs(deltaX) < SWIPE_THRESHOLD ||
+			Math.abs(deltaX) < Math.abs(deltaY)
+		) {
+			return;
+		}
+
+		if (deltaX < 0) {
+			handleNext(); // swipe vers la gauche → film suivant
+		} else {
+			handlePrev(); // swipe vers la droite → film précédent
+		}
+	};
+
 	// Gestion de l'année (Nombre ou String)
 	const releaseYear =
 		typeof film.release_date === "number"
@@ -57,7 +93,11 @@ const CarrouselAccueilClient = ({
 			: String(film.release_date ?? 2025);
 
 	return (
-		<div className={styles.mainCarrousel}>
+		<div
+			className={styles.mainCarrousel}
+			onTouchStart={handleTouchStart}
+			onTouchEnd={handleTouchEnd}
+		>
 			<div className={styles.legend}>
 				<NavLink to={`/films/${film.id}`}>
 					{/* <NavLink to="/films" onClick={(e) => e.stopPropagation()}> */}
