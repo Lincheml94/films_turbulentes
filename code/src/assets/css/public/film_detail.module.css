@@ -168,7 +168,7 @@
 			padding-left: 2em;
 			padding-top: 15em;
 			.colonneDetail {
-				width: 50vw;
+				width: 38vw;
 			}
 		}
 		.titreArrow {
@@ -186,6 +186,7 @@
 		padding-top: 200px;
 		width: 100%;
 		align-items: center;
+		padding-bottom: 3em;
 
 		.colonnesInfoFilms {
 			display: contents;

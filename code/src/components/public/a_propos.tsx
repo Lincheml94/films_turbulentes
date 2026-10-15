@@ -142,7 +142,10 @@ const APropos = () => {
 			</div>
 			{/* PHOTO DES PROD */}
 			<div className={styles.imgLeft}>
-				<img src="/public/img/photo_bio.jpeg" alt="" />
+				<img
+					src="/public/img/0010_10Ab.jpg"
+					alt="Les productrices des Films des Turbulentes"
+				/>
 			</div>
 			{/* MENTIONS LEGALES */}
 			<div className={styles.boxMentionsLegales}>
@@ -171,9 +174,7 @@ const APropos = () => {
 					<p>Direction de la publication : [Nom et Prénom]</p>
 					<p>Contact : [adresse email]</p>
 					<p>Hébergement : [nom + adresse de l'hébergeur]</p>
-					<p>
-						Conception et développement : [ton nom ou celui de ta structure]
-					</p>
+					<p>Conception et développement : Lina Chemlal</p>
 				</div>
 			</div>
 		</div>

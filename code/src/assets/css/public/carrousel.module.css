@@ -60,7 +60,7 @@
 		flex-direction: column-reverse;
 		overflow: unset;
 		height: auto;
-		top: 17rem;
+		top: 18rem;
 		width: 100vw;
 
 		.legend {
@@ -101,5 +101,11 @@
 				padding-bottom: 1.2rem;
 			}
 		}
+	}
+}
+
+@media only screen and (max-width: 394px) {
+	.mainCarrousel {
+		top: 19rem;
 	}
 }
