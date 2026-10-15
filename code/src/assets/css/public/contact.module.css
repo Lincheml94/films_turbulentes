@@ -86,3 +86,29 @@
 		}
 	}
 }
+
+/* GRANDS ECRANS */
+@media only screen and (min-width: 1700px) {
+	.contactContent {
+		.contactBox {
+			padding-top: 22em;
+			gap: 20em;
+
+			.contactDetails {
+				gap: 5em;
+			}
+
+			img {
+				height: 70px;
+			}
+
+			p,
+			h1 {
+				text-align: left;
+				font-size: 20px;
+				line-height: 25px;
+				font-family: UncutSans-semibold;
+			}
+		}
+	}
+}

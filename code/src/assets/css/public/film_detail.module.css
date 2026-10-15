@@ -325,3 +325,35 @@
 		}
 	}
 }
+
+@media only screen and (min-width: 1700px) {
+	.mainPageFilmDetail {
+		p {
+			font-size: 17px;
+		}
+
+		.leftElements {
+			position: fixed;
+			top: 0rem;
+			right: 0;
+			display: flex;
+			gap: 5em;
+
+			.colonneDetailDescription {
+				p {
+					font-size: 22px;
+				}
+			}
+		}
+
+		.colonneDetail {
+			gap: 4rem;
+		}
+
+		.boxImageIsVisible {
+			img {
+				height: 240px;
+			}
+		}
+	}
+}
