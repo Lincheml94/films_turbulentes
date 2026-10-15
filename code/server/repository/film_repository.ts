@@ -140,10 +140,35 @@ class FilmRepository {
 		const sql = `
 		INSERT INTO 
 			${process.env.MYSQL_DATABASE}.${this.table}
+			(
+				title, 
+				poster,
+				director_1, 
+				director_1_bio,
+				director_1_image,
+				director_2,
+				director_2_bio,
+				director_2_image,
+				director_3,
+				director_3_bio,
+				director_3_image,
+				description, 
+				type,  
+				release_date,
+				duration,
+				fiche_technique,
+				prix_festivals,
+				partenaires_soutiens,
+				presse,
+				category_id,
+				image_1,
+				image_2,
+				image_3,
+				image_4,
+				image_5
+    		)
 		VALUES 
 			(
-				NULL, 
-
 				:title, 
 				:poster,
 				:director_1, 

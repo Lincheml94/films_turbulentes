@@ -322,6 +322,7 @@ const AdminFilmFormContent = ({
 					<p className={styles.msg_erreur} role="alert">
 						{errors.category_id?.message ?? serverErrors?.category_id}
 					</p>
+					{/* TYPE */}
 					<p>
 						<label htmlFor={typeId}>Type du film (obligatoire)</label>
 						<input
@@ -331,6 +332,9 @@ const AdminFilmFormContent = ({
 						/>
 						<br />
 					</p>
+					{/* <p className={styles.msg_erreur} role="alert">
+						{errors.type?.message ?? serverErrors?.type}
+					</p> */}
 
 					{/* DESCRIPTION */}
 					<p>
@@ -464,10 +468,6 @@ const AdminFilmFormContent = ({
 
 					{/* AUTRES CHAMPS TECHNIQUES */}
 					<fieldset>
-						<p className={styles.msg_erreur} role="alert">
-							{errors.type?.message ?? serverErrors?.type}
-						</p>
-
 						<p>
 							<label htmlFor={releasedateId}>Année de sortie</label>
 							<input
